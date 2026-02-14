@@ -17,7 +17,7 @@ export function SectionAutomation() {
     const { t } = useLanguage()
 
     return (
-        <section id="catalogo" className="w-full bg-[#242730] py-20 md:py-20 scroll-mt-20 border-t-[3px] border-[#4a90e2]">
+        <section id="catalogo" className="w-full bg-[#2d3139] py-20 md:py-20 scroll-mt-20 border-t-[3px] border-[#4a90e2]">
             <div className="container">
                 <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center mb-16">
                     <h2 className="font-bold text-3xl leading-[1.1] sm:text-3xl md:text-5xl text-white drop-shadow-[0_0_20px_rgba(0,136,204,0.3)]">

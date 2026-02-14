@@ -249,6 +249,7 @@ export function FormDiscovery() {
                                                 >
                                                     <FormControl>
                                                         <Checkbox
+                                                            className="data-[state=checked]:bg-[#0088cc] data-[state=checked]:border-[#0088cc] border-[#5a5f6b] bg-[#4a4a50]"
                                                             checked={field.value?.includes(item)}
                                                             onCheckedChange={(checked) => {
                                                                 return checked

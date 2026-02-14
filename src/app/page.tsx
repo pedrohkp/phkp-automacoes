@@ -12,9 +12,9 @@ export default function Home() {
       <Hero />
       <SectionAbout />
       <SectionROI />
-      <SectionLeadCapture />
       <SectionAutomation />
       <SectionForms />
+      <SectionLeadCapture />
       <SectionFAQ />
     </>
   );

@@ -9,7 +9,7 @@ export function SectionForms() {
     const { t } = useLanguage()
 
     return (
-        <section id="personalizada" className="w-full bg-[#2d3139] border-t border-[rgba(255,255,255,0.05)] py-14 md:py-20 lg:py-28 scroll-mt-20">
+        <section id="personalizada" className="w-full bg-[#242730] border-t border-[rgba(255,255,255,0.05)] py-14 md:py-20 lg:py-28 scroll-mt-20">
             <div className="container">
                 <div className="mx-auto flex max-w-[58rem] flex-col items-center justify-center gap-4 text-center mb-16">
                     <h2 className="font-bold text-3xl leading-[1.1] sm:text-3xl md:text-5xl text-white">
