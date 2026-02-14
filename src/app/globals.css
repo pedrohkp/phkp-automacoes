@@ -1,0 +1,179 @@
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  /* Base Colors - PHKP Palette (Dark/Metallic Theme Default) */
+  /* Base Colors - PHKP Palette (Dark/Metallic Theme Default) */
+  --background: #242730;
+  --foreground: #ffffff;
+  /* H1 White */
+
+  /* Alternating Backgrounds */
+  --bg-primary: #242730;
+  --bg-secondary: #2d3139;
+  --bg-tertiary: #343945;
+  /* New for Automation Section */
+
+  /* Text Colors */
+  --text-heading-main: #ffffff;
+  --text-heading-sec: #e0e0e0;
+  --text-body: #c0c0c0;
+  --text-muted: #808080;
+
+  /* UI Elements */
+  --card: #343945;
+  /* Base card color, though gradients often used */
+  --card-automation: #343945;
+  /* New for Automation Section Cards */
+  --search-input: #343945;
+  /* New for Automation Section Inputs */
+  --card-foreground: #e0e0e0;
+  --popover: #343945;
+  --popover-foreground: #e0e0e0;
+
+  /* Brand Colors */
+  --primary: #0088cc;
+  /* Cyan Electric start */
+  --primary-hover: #006699;
+  --primary-foreground: #ffffff;
+
+  --secondary: #2d3139;
+  --secondary-foreground: #0088cc;
+
+  --muted: #2d3139;
+  --muted-foreground: #808080;
+
+  --accent: #0088cc;
+  --accent-foreground: #ffffff;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  /* Borders & Inputs */
+  --border: rgba(0, 136, 204, 0.2);
+  --border-automation: #3a3f4b;
+  /* New for Automation Section Borders */
+  --input: #343945;
+  --ring: rgba(0, 136, 204, 0.5);
+
+  --radius: 0.5rem;
+
+  /* Chart Colors (mapped to blues/cyans mostly) */
+  --chart-1: 200 100% 40%;
+  /* #00bfff */
+  --chart-2: 205 100% 30%;
+  --chart-3: 200 100% 40%;
+  --chart-4: 210 100% 60%;
+  --chart-5: 220 100% 70%;
+}
+
+.dark {
+  /* Same as root since we are forcing this theme */
+  --background: #1a1a1c;
+  --foreground: #ffffff;
+  --card: #1e1e22;
+  --card-foreground: #e0e0e0;
+  --popover: #1e1e22;
+  --popover-foreground: #e0e0e0;
+  --primary: #0088cc;
+  --primary-foreground: #ffffff;
+  --secondary: #1e1e22;
+  --secondary-foreground: #0088cc;
+  --muted: #1e1e22;
+  --muted-foreground: #808080;
+  --accent: #0088cc;
+  --accent-foreground: #ffffff;
+  --destructive: #7f1d1d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 136, 204, 0.2);
+  --input: rgba(30, 30, 34, 0.5);
+  --ring: rgba(0, 136, 204, 0.5);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #1a1a1c;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #0088cc;
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #006699;
+  }
+}
+
+@layer utilities {
+  .container {
+    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-[1280px];
+  }
+
+  .text-glow-blue {
+    text-shadow: 0 0 20px rgba(0, 136, 204, 0.3);
+  }
+
+  .box-glow-blue {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 136, 204, 0.1);
+  }
+
+  .btn-primary-glow {
+    box-shadow: 0 4px 20px rgba(0, 136, 204, 0.5);
+  }
+}
