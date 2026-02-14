@@ -54,7 +54,7 @@ export function Hero() {
 
                 {/* Texto abaixo dos botões */}
                 <p className="mt-6 text-[#9CA3AF] text-sm text-center max-w-md mx-auto">
-                    Sem compromisso. Sem taxa de setup. Só uma conversa sobre como economizar tempo.
+                    Sem compromisso. Diagnóstico gratuito. Só uma conversa sobre como economizar tempo.
                 </p>
 
                 {/* Social Proof / Benefit Pills */}

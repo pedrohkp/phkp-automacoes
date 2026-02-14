@@ -15,7 +15,7 @@ export function SectionROI() {
     const [hours, setHours] = React.useState([20])
     const [rate, setRate] = React.useState([50])
     const [errorRate, setErrorRate] = React.useState(10)
-    const [opportunityCost, setOpportunityCost] = React.useState(0)
+    const [opportunityCost, setOpportunityCost] = React.useState(500)
 
     // Formula:
     // EconomyTime = (hours * 4 * rate * 0.7)
@@ -24,6 +24,13 @@ export function SectionROI() {
     const economyTime = (hours[0] * 4 * rate[0] * 0.7)
     const reworkCost = (hours[0] * 4 * rate[0] * (errorRate / 100))
     const savings = Math.round(economyTime + reworkCost + opportunityCost)
+
+    const handleErrorRateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        let valor = parseInt(e.target.value) || 0;
+        if (valor > 100) valor = 100;
+        if (valor < 0) valor = 0;
+        setErrorRate(valor);
+    };
 
     return (
         <section id="calculadora" className="w-full bg-[#0F1F3D] border-t border-[rgba(37,99,235,0.15)] py-20 md:py-20 scroll-mt-20">
@@ -88,8 +95,9 @@ export function SectionROI() {
                                 type="number"
                                 min={0}
                                 max={100}
+                                step={1}
                                 value={errorRate}
-                                onChange={(e) => setErrorRate(Number(e.target.value))}
+                                onChange={handleErrorRateChange}
                                 className="bg-[#0F1F3D] border-[rgba(37,99,235,0.3)] text-white focus-visible:ring-[#F97316] focus-visible:border-[#F97316]"
                             />
                             <p className="text-xs text-[#9CA3AF]">Retrabalho por erros de digitação, esquecimentos, etc.</p>
@@ -102,21 +110,30 @@ export function SectionROI() {
                                 id="opportunityCost"
                                 type="number"
                                 min={0}
+                                step={100}
                                 value={opportunityCost}
-                                onChange={(e) => setOpportunityCost(Number(e.target.value))}
+                                onChange={(e) => setOpportunityCost(Number(e.target.value) || 0)}
                                 className="bg-[#0F1F3D] border-[rgba(37,99,235,0.3)] text-white focus-visible:ring-[#F97316] focus-visible:border-[#F97316]"
+                                placeholder="500"
                             />
                             <p className="text-xs text-[#9CA3AF]">Ex: vendas perdidas, projetos atrasados</p>
                         </div>
                     </div>
 
                     {/* Result Column */}
-                    <div className="bg-gradient-to-br from-[#2563EB] to-[#1D4ED8] text-white rounded-2xl p-8 md:p-10 text-center shadow-[0_8px_24px_rgba(37,99,235,0.5)] h-full flex flex-col justify-center items-center space-y-6 border border-[rgba(255,255,255,0.2)]">
-                        <div className="space-y-2">
-                            <p className="text-blue-100 font-medium tracking-wide uppercase text-sm">{t.roi.result_title}</p>
-                            <div className="text-4xl md:text-5xl font-extrabold tracking-tight text-white drop-shadow-md">
-                                R$ {savings.toLocaleString('pt-BR')}
+                    <div className="bg-[#0F1F3D] text-white rounded-2xl p-8 md:p-10 text-center shadow-[0_8px_24px_rgba(37,99,235,0.5)] h-full flex flex-col justify-center items-center space-y-6 border border-[rgba(255,255,255,0.2)]">
+                        <div className="w-full">
+                            <p className="text-blue-100 font-medium tracking-wide uppercase text-sm mb-4">{t.roi.result_title}</p>
+
+                            {/* Highlighted Result Box */}
+                            <div className="mb-6 p-6 bg-gradient-to-br from-[#F97316] to-[#EA580C] rounded-xl shadow-[0_4px_24px_rgba(249,115,22,0.6)] w-full">
+                                <p className="text-white text-sm font-medium mb-2">💰 Economia Estimada:</p>
+                                <p className="text-white text-4xl md:text-5xl font-bold">
+                                    R$ {savings.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                </p>
+                                <p className="text-white/90 text-lg mt-1">por mês</p>
                             </div>
+
                             <p className="text-sm text-blue-100/80">
                                 {t.roi.result_note}
                             </p>
