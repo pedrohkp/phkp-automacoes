@@ -10,76 +10,91 @@
 }
 
 :root {
-  /* Base Colors - Neon Purple + Dark Metallic Palette */
-  --background-main: #0A0A0D;
-  --background-secondary: #13131A;
-  --card-background: #1A1A22;
-
-  --primary-purple: #8B5CF6;
-  --primary-purple-dark: #7C3AED;
-  --primary-purple-deep: #6D28D9;
-
-  --border-subtle: rgba(139, 92, 246, 0.15);
-
+  /* Fundos */
+  --bg-primary: #0A1628;
+  --bg-secondary: #0F1F3D;
+  --bg-card: #1A2B4F;
+  
+  /* Azuis */
+  --blue-primary: #2563EB;
+  --blue-light: #3B82F6;
+  --blue-lighter: #60A5FA;
+  
+  /* Laranjas */
+  --orange-primary: #F97316;
+  --orange-medium: #FB923C;
+  --orange-light: #FDBA74;
+  
+  /* Neutros */
   --text-white: #FFFFFF;
-  --text-gray: #A1A1AA;
-  --text-muted: #E0E0E0;
-
-  --neon-shadow: 0 4px 24px rgba(139, 92, 246, 0.4);
-  --neon-glow: 0 0 20px rgba(139, 92, 246, 0.5);
+  --text-gray-light: #E5E7EB;
+  --text-gray-medium: #9CA3AF;
+  
+  /* Bordas */
+  --border-blue: rgba(37, 99, 235, 0.15);
+  --border-orange: rgba(249, 115, 22, 0.20);
+  
+  /* Efeitos */
+  --glow-blue: 0 0 20px rgba(37, 99, 235, 0.5);
+  --glow-orange: 0 4px 24px rgba(249, 115, 22, 0.6);
+  
+  /* Gradientes */
+  --gradient-blue: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+  --gradient-orange: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+  --gradient-blue-orange: linear-gradient(135deg, #2563EB 0%, #F97316 100%);
 
   /* Mapping to Shadcn/Tailwind standard variables */
-  --background: #0A0A0D;
-  --foreground: #FFFFFF;
-
-  --card: #1A1A22;
-  --card-foreground: #E0E0E0;
-
-  --popover: #1A1A22;
-  --popover-foreground: #E0E0E0;
-
-  --primary: #8B5CF6;
+  --background: #0A1628;
+  --foreground: #E5E7EB;
+  
+  --card: #1A2B4F;
+  --card-foreground: #E5E7EB;
+  
+  --popover: #1A2B4F;
+  --popover-foreground: #E5E7EB;
+  
+  --primary: #F97316;
   --primary-foreground: #FFFFFF;
-
-  --secondary: #13131A;
-  --secondary-foreground: #8B5CF6;
-
-  --muted: #13131A;
-  --muted-foreground: #A1A1AA;
-
-  --accent: #8B5CF6;
+  
+  --secondary: #1A2B4F;
+  --secondary-foreground: #3B82F6;
+  
+  --muted: #0F1F3D;
+  --muted-foreground: #9CA3AF;
+  
+  --accent: #2563EB;
   --accent-foreground: #FFFFFF;
-
+  
   --destructive: #ef4444;
   --destructive-foreground: #FFFFFF;
-
-  --border: rgba(139, 92, 246, 0.15);
-  --input: #1A1A22;
-  --ring: rgba(139, 92, 246, 0.5);
-
+  
+  --border: rgba(37, 99, 235, 0.15);
+  --input: #0F1F3D;
+  --ring: rgba(249, 115, 22, 0.5);
+  
   --radius: 0.5rem;
 }
 
 .dark {
-  --background: #0A0A0D;
-  --foreground: #FFFFFF;
-  --card: #1A1A22;
-  --card-foreground: #E0E0E0;
-  --popover: #1A1A22;
-  --popover-foreground: #E0E0E0;
-  --primary: #8B5CF6;
+  --background: #0A1628;
+  --foreground: #E5E7EB;
+  --card: #1A2B4F;
+  --card-foreground: #E5E7EB;
+  --popover: #1A2B4F;
+  --popover-foreground: #E5E7EB;
+  --primary: #F97316;
   --primary-foreground: #FFFFFF;
-  --secondary: #13131A;
-  --secondary-foreground: #8B5CF6;
-  --muted: #13131A;
-  --muted-foreground: #A1A1AA;
-  --accent: #8B5CF6;
+  --secondary: #1A2B4F;
+  --secondary-foreground: #3B82F6;
+  --muted: #0F1F3D;
+  --muted-foreground: #9CA3AF;
+  --accent: #2563EB;
   --accent-foreground: #FFFFFF;
   --destructive: #7f1d1d;
   --destructive-foreground: #FFFFFF;
-  --border: rgba(139, 92, 246, 0.15);
-  --input: #1A1A22;
-  --ring: rgba(139, 92, 246, 0.5);
+  --border: rgba(37, 99, 235, 0.15);
+  --input: #0F1F3D;
+  --ring: rgba(249, 115, 22, 0.5);
 }
 
 @theme inline {
@@ -117,7 +132,7 @@
   }
 
   body {
-    @apply bg-background text-foreground transition-colors duration-300;
+    @apply bg-[#0A1628] text-[#E5E7EB] transition-colors duration-300;
   }
 
   /* Custom Scrollbar */
@@ -126,33 +141,21 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: #1a1a1c;
+    background: #0F1F3D;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #0088cc;
+    background: #2563EB;
     border-radius: 5px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #006699;
+    background: #F97316;
   }
 }
 
 @layer utilities {
   .container {
     @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-[1280px];
-  }
-
-  .text-glow-blue {
-    text-shadow: 0 0 20px rgba(0, 136, 204, 0.3);
-  }
-
-  .box-glow-blue {
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 136, 204, 0.1);
-  }
-
-  .btn-primary-glow {
-    box-shadow: 0 4px 20px rgba(0, 136, 204, 0.5);
   }
 }

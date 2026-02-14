@@ -15,27 +15,27 @@ export function SectionROI() {
     const savings = Math.round((hours[0] * 4 * rate[0]) * 0.7)
 
     return (
-        <section id="calculadora" className="w-full bg-[#0A0A0D] border-t border-[rgba(139,92,246,0.15)] py-20 md:py-20 scroll-mt-20">
+        <section id="calculadora" className="w-full bg-[#0F1F3D] border-t border-[rgba(37,99,235,0.15)] py-20 md:py-20 scroll-mt-20">
             <div className="container">
                 <div className="mx-auto max-w-4xl text-center mb-12">
-                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-4 text-white drop-shadow-[0_0_20px_rgba(139,92,246,0.3)]">
+                    <h2 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl mb-4 text-white drop-shadow-[0_0_20px_rgba(37,99,235,0.3)]">
                         {t.roi.title}
                     </h2>
-                    <p className="text-[#c0c0c0] text-lg">
+                    <p className="text-[#9CA3AF] text-lg">
                         {t.roi.subtitle}
                     </p>
                 </div>
 
-                <div className="grid gap-8 md:grid-cols-2 items-center bg-[#1A1A22] border border-[rgba(139,92,246,0.3)] rounded-3xl p-6 md:p-12 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+                <div className="grid gap-8 md:grid-cols-2 items-center bg-[#1A2B4F] border border-[rgba(37,99,235,0.15)] rounded-3xl p-6 md:p-12 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
 
                     {/* Sliders Column */}
                     <div className="space-y-10">
                         <div className="space-y-4">
                             <div className="flex justify-between items-center">
-                                <label className="font-medium text-sm md:text-base text-[#e0e0e0]">
+                                <label className="font-medium text-sm md:text-base text-[#E5E7EB]">
                                     {t.roi.label_hours}
                                 </label>
-                                <span className="font-bold text-[#8B5CF6] bg-[rgba(139,92,246,0.1)] px-3 py-1 rounded-md border border-[rgba(139,92,246,0.3)]">
+                                <span className="font-bold text-[#3B82F6] bg-[rgba(37,99,235,0.1)] px-3 py-1 rounded-md border border-[rgba(37,99,235,0.3)]">
                                     {hours[0]}h
                                 </span>
                             </div>
@@ -44,16 +44,16 @@ export function SectionROI() {
                                 onValueChange={setHours}
                                 max={40}
                                 step={1}
-                                className="py-4 [&>.relative>.bg-primary]:bg-[#8B5CF6] [&>.relative>.bg-secondary]:bg-[#13131A] [&_span:focus-visible]:ring-[#8B5CF6] [&_span]:border-[#8B5CF6] [&_span]:bg-[#13131A] [&_span]:shadow-[0_0_10px_rgba(139,92,246,0.7)]"
+                                className="py-4 [&>.relative>.bg-primary]:bg-[#F97316] [&>.relative>.bg-secondary]:bg-[#0F1F3D] [&_span:focus-visible]:ring-[#F97316] [&_span]:border-[#F97316] [&_span]:bg-[#0F1F3D] [&_span]:shadow-[0_0_10px_rgba(249,115,22,0.7)]"
                             />
                         </div>
 
                         <div className="space-y-4">
                             <div className="flex justify-between items-center">
-                                <label className="font-medium text-sm md:text-base text-[#e0e0e0]">
+                                <label className="font-medium text-sm md:text-base text-[#E5E7EB]">
                                     {t.roi.label_rate}
                                 </label>
-                                <span className="font-bold text-[#8B5CF6] bg-[rgba(139,92,246,0.1)] px-3 py-1 rounded-md border border-[rgba(139,92,246,0.3)]">
+                                <span className="font-bold text-[#3B82F6] bg-[rgba(37,99,235,0.1)] px-3 py-1 rounded-md border border-[rgba(37,99,235,0.3)]">
                                     R$ {rate[0]}
                                 </span>
                             </div>
@@ -63,19 +63,19 @@ export function SectionROI() {
                                 min={20}
                                 max={300}
                                 step={5}
-                                className="py-4 [&>.relative>.bg-primary]:bg-[#8B5CF6] [&>.relative>.bg-secondary]:bg-[#13131A] [&_span:focus-visible]:ring-[#8B5CF6] [&_span]:border-[#8B5CF6] [&_span]:bg-[#13131A] [&_span]:shadow-[0_0_10px_rgba(139,92,246,0.7)]"
+                                className="py-4 [&>.relative>.bg-primary]:bg-[#F97316] [&>.relative>.bg-secondary]:bg-[#0F1F3D] [&_span:focus-visible]:ring-[#F97316] [&_span]:border-[#F97316] [&_span]:bg-[#0F1F3D] [&_span]:shadow-[0_0_10px_rgba(249,115,22,0.7)]"
                             />
                         </div>
                     </div>
 
                     {/* Result Column */}
-                    <div className="bg-gradient-to-br from-[#8B5CF6] to-[#6D28D9] text-white rounded-2xl p-8 md:p-10 text-center shadow-[0_8px_24px_rgba(139,92,246,0.4)] h-full flex flex-col justify-center items-center space-y-6 border border-[rgba(255,255,255,0.2)]">
+                    <div className="bg-gradient-to-br from-[#2563EB] to-[#1D4ED8] text-white rounded-2xl p-8 md:p-10 text-center shadow-[0_8px_24px_rgba(37,99,235,0.5)] h-full flex flex-col justify-center items-center space-y-6 border border-[rgba(255,255,255,0.2)]">
                         <div className="space-y-2">
-                            <p className="text-purple-100 font-medium tracking-wide uppercase text-sm">{t.roi.result_title}</p>
+                            <p className="text-blue-100 font-medium tracking-wide uppercase text-sm">{t.roi.result_title}</p>
                             <div className="text-4xl md:text-5xl font-extrabold tracking-tight text-white drop-shadow-md">
                                 R$ {savings.toLocaleString('pt-BR')}
                             </div>
-                            <p className="text-sm text-purple-100/80">
+                            <p className="text-sm text-blue-100/80">
                                 {t.roi.result_note}
                             </p>
                         </div>
@@ -83,7 +83,7 @@ export function SectionROI() {
                         <Button
                             size="lg"
                             variant="secondary"
-                            className="w-full font-bold text-[#6D28D9] bg-white hover:bg-white/90 transition-all shadow-md hover:shadow-lg"
+                            className="w-full font-bold text-[#2563EB] bg-white hover:bg-white/90 transition-all shadow-md hover:shadow-lg"
                             asChild
                         >
                             <Link href="#personalizada">

@@ -88,7 +88,7 @@ export function FormDirect() {
                         <FormItem>
                             <FormLabel>Nome Completo</FormLabel>
                             <FormControl>
-                                <Input placeholder="Seu nome" {...field} className="bg-[#1A1A22] border-[rgba(139,92,246,0.15)] text-[#e0e0e0] focus:border-[#8B5CF6] focus:ring-[#8B5CF6]" />
+                                <Input placeholder="Seu nome" {...field} className="bg-[#0F1F3D] border-[rgba(37,99,235,0.2)] text-white focus:border-[#F97316] focus:ring-[#F97316]" />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -102,7 +102,7 @@ export function FormDirect() {
                             <FormItem>
                                 <FormLabel>Email</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="seu@email.com" {...field} className="bg-[#1A1A22] border-[rgba(139,92,246,0.15)] text-[#e0e0e0] focus:border-[#8B5CF6] focus:ring-[#8B5CF6]" />
+                                    <Input placeholder="seu@email.com" {...field} className="bg-[#0F1F3D] border-[rgba(37,99,235,0.2)] text-white focus:border-[#F97316] focus:ring-[#F97316]" />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -115,7 +115,7 @@ export function FormDirect() {
                             <FormItem>
                                 <FormLabel>WhatsApp (para agilizar contato)</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="(00) 00000-0000" type="tel" {...field} className="bg-[#1A1A22] border-[rgba(139,92,246,0.15)] text-[#e0e0e0] focus:border-[#8B5CF6] focus:ring-[#8B5CF6]" />
+                                    <Input placeholder="(00) 00000-0000" type="tel" {...field} className="bg-[#0F1F3D] border-[rgba(37,99,235,0.2)] text-white focus:border-[#F97316] focus:ring-[#F97316]" />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -129,7 +129,7 @@ export function FormDirect() {
                         <FormItem>
                             <FormLabel>Empresa</FormLabel>
                             <FormControl>
-                                <Input placeholder="Nome da sua empresa" {...field} className="bg-[#1A1A22] border-[rgba(139,92,246,0.15)] text-[#e0e0e0] focus:border-[#8B5CF6] focus:ring-[#8B5CF6]" />
+                                <Input placeholder="Nome da sua empresa" {...field} className="bg-[#0F1F3D] border-[rgba(37,99,235,0.2)] text-white focus:border-[#F97316] focus:ring-[#F97316]" />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -144,7 +144,7 @@ export function FormDirect() {
                             <FormControl>
                                 <Textarea
                                     placeholder="Ex: Preciso enviar emails automáticos quando um cliente faz pedido..."
-                                    className="min-h-[100px] bg-[#1A1A22] border-[rgba(139,92,246,0.15)] text-[#e0e0e0] focus:border-[#8B5CF6] focus:ring-[#8B5CF6]"
+                                    className="min-h-[100px] bg-[#0F1F3D] border-[rgba(37,99,235,0.2)] text-white focus:border-[#F97316] focus:ring-[#F97316]"
                                     {...field}
                                 />
                             </FormControl>
@@ -174,13 +174,13 @@ export function FormDirect() {
                                                     className={cn(
                                                         "flex flex-row items-center space-x-3 space-y-0 rounded-lg p-3 sm:p-4 border transition-all cursor-pointer",
                                                         isChecked
-                                                            ? "bg-[#13131A] border-[#8B5CF6]"
-                                                            : "bg-[#1A1A22] border-[rgba(139,92,246,0.15)] hover:bg-[#13131A] hover:border-[#8B5CF6]"
+                                                            ? "bg-[#1A2B4F] border-[#2563EB]"
+                                                            : "bg-[#0F1F3D] border-[rgba(37,99,235,0.2)] hover:bg-[#1A2B4F] hover:border-[#2563EB]"
                                                     )}
                                                 >
                                                     <FormControl>
                                                         <Checkbox
-                                                            className="data-[state=checked]:bg-[#8B5CF6] data-[state=checked]:border-[#8B5CF6] border-[#808080] bg-[#1A1A22]"
+                                                            className="data-[state=checked]:bg-[#2563EB] data-[state=checked]:border-[#2563EB] border-[#808080] bg-[#0F1F3D]"
                                                             checked={isChecked}
                                                             onCheckedChange={(checked) => {
                                                                 return checked
@@ -206,7 +206,7 @@ export function FormDirect() {
                         </FormItem>
                     )}
                 />
-                <Button type="submit" className="w-full bg-gradient-to-br from-[#8B5CF6] to-[#6D28D9] text-white shadow-[0_4px_24px_rgba(139,92,246,0.4)] hover:shadow-[0_0_30px_rgba(139,92,246,0.7)] transition-all" disabled={isLoading}>
+                <Button type="submit" className="w-full bg-gradient-to-br from-[#F97316] to-[#EA580C] text-white shadow-[0_4px_24px_rgba(249,115,22,0.6)] hover:shadow-[0_6px_32px_rgba(249,115,22,0.8)] transition-all" disabled={isLoading}>
                     {isLoading ? "Enviando..." : "Enviar e Agendar Reunião"}
                 </Button>
             </form>

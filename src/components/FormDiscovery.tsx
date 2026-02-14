@@ -77,7 +77,7 @@ export function FormDiscovery() {
                         <FormItem>
                             <FormLabel>Nome Completo</FormLabel>
                             <FormControl>
-                                <Input placeholder="Seu nome" {...field} className="bg-[#1A1A22] border-[rgba(139,92,246,0.15)] text-[#e0e0e0] focus:border-[#8B5CF6] focus:ring-[#8B5CF6]" />
+                                <Input placeholder="Seu nome" {...field} className="bg-[#0F1F3D] border-[rgba(37,99,235,0.2)] text-white focus:border-[#F97316] focus:ring-[#F97316]" />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -91,7 +91,7 @@ export function FormDiscovery() {
                             <FormItem>
                                 <FormLabel>Email</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="seu@email.com" {...field} className="bg-[#1A1A22] border-[rgba(139,92,246,0.15)] text-[#e0e0e0] focus:border-[#8B5CF6] focus:ring-[#8B5CF6]" />
+                                    <Input placeholder="seu@email.com" {...field} className="bg-[#0F1F3D] border-[rgba(37,99,235,0.2)] text-white focus:border-[#F97316] focus:ring-[#F97316]" />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -104,7 +104,7 @@ export function FormDiscovery() {
                             <FormItem>
                                 <FormLabel>WhatsApp</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="(00) 00000-0000" type="tel" {...field} className="bg-[#1A1A22] border-[rgba(139,92,246,0.15)] text-[#e0e0e0] focus:border-[#8B5CF6] focus:ring-[#8B5CF6]" />
+                                    <Input placeholder="(00) 00000-0000" type="tel" {...field} className="bg-[#0F1F3D] border-[rgba(37,99,235,0.2)] text-white focus:border-[#F97316] focus:ring-[#F97316]" />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -118,7 +118,7 @@ export function FormDiscovery() {
                         <FormItem>
                             <FormLabel>Empresa (Opcional)</FormLabel>
                             <FormControl>
-                                <Input placeholder="Nome da sua empresa" {...field} className="bg-[#1A1A22] border-[rgba(139,92,246,0.15)] text-[#e0e0e0] focus:border-[#8B5CF6] focus:ring-[#8B5CF6]" />
+                                <Input placeholder="Nome da sua empresa" {...field} className="bg-[#0F1F3D] border-[rgba(37,99,235,0.2)] text-white focus:border-[#F97316] focus:ring-[#F97316]" />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -133,7 +133,7 @@ export function FormDiscovery() {
                             <FormControl>
                                 <Textarea
                                     placeholder="Descreva suas principais tarefas repetitivas ou dores do dia a dia..."
-                                    className="min-h-[120px] bg-[#1A1A22] border-[rgba(139,92,246,0.15)] text-[#e0e0e0] focus:border-[#8B5CF6] focus:ring-[#8B5CF6]"
+                                    className="min-h-[120px] bg-[#0F1F3D] border-[rgba(37,99,235,0.2)] text-white focus:border-[#F97316] focus:ring-[#F97316]"
                                     {...field}
                                 />
                             </FormControl>
@@ -142,7 +142,7 @@ export function FormDiscovery() {
                     )}
                 />
 
-                <Button type="submit" className="w-full bg-gradient-to-br from-[#8B5CF6] to-[#6D28D9] text-white shadow-[0_4px_24px_rgba(139,92,246,0.4)] hover:shadow-[0_0_30px_rgba(139,92,246,0.7)] transition-all" disabled={isLoading}>
+                <Button type="submit" className="w-full bg-gradient-to-br from-[#F97316] to-[#EA580C] text-white shadow-[0_4px_24px_rgba(249,115,22,0.6)] hover:shadow-[0_6px_32px_rgba(249,115,22,0.8)] transition-all" disabled={isLoading}>
                     {isLoading ? "Enviando..." : "Receber diagnóstico e agendar"}
                 </Button>
             </form>

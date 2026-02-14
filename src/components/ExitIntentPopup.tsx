@@ -105,13 +105,13 @@ export function ExitIntentPopup() {
 
     return (
         <div
-            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/75 transition-opacity duration-300 animate-in fade-in"
+            className="fixed inset-0 z-[9999] flex items-center justify-center bg-[rgba(3,7,18,0.85)] transition-opacity duration-300 animate-in fade-in"
             onClick={handleOverlayClick}
         >
-            <div className="relative w-full max-w-[500px] scale-100 rounded-xl border border-[rgba(139,92,246,0.3)] bg-[#1A1A22] p-10 shadow-[0_10px_40px_rgba(0,0,0,0.5)] transition-transform duration-300 animate-in zoom-in-95">
+            <div className="relative w-full max-w-[500px] scale-100 rounded-xl border border-[rgba(37,99,235,0.2)] bg-[#1A2B4F] p-10 shadow-[0_10px_40px_rgba(0,0,0,0.5)] transition-transform duration-300 animate-in zoom-in-95">
                 <button
                     onClick={handleClose}
-                    className="absolute right-4 top-4 p-2 text-white hover:text-[#8B5CF6] transition-colors"
+                    className="absolute right-4 top-4 p-2 text-white hover:text-[#F97316] transition-colors"
                 >
                     <X size={32} />
                 </button>
@@ -119,7 +119,7 @@ export function ExitIntentPopup() {
                 <div className="flex flex-col items-center text-center">
                     <div className="mb-4 text-4xl">🛑</div>
 
-                    <h2 className="mb-2 text-[28px] font-bold text-white drop-shadow-[0_0_10px_rgba(139,92,246,0.5)]">
+                    <h2 className="mb-2 text-[28px] font-bold text-white drop-shadow-[0_0_10px_rgba(37,99,235,0.5)]">
                         Espera! Antes de sair...
                     </h2>
 
@@ -129,11 +129,11 @@ export function ExitIntentPopup() {
                         </div>
                     ) : (
                         <>
-                            <p className="mb-2 text-lg text-[#a0a0a0]">
+                            <p className="mb-2 text-lg text-[#9CA3AF]">
                                 Receba gratuitamente nosso guia:
                             </p>
 
-                            <h3 className="mb-6 text-xl font-semibold text-[#8B5CF6] drop-shadow-[0_0_8px_rgba(139,92,246,0.4)]">
+                            <h3 className="mb-6 text-xl font-semibold text-[#F97316] drop-shadow-[0_0_8px_rgba(249,115,22,0.4)]">
                                 5 Processos que Toda Empresa Pode Automatizar Hoje
                             </h3>
 
@@ -148,7 +148,7 @@ export function ExitIntentPopup() {
                                                     <Input
                                                         placeholder="Seu melhor email"
                                                         {...field}
-                                                        className="h-12 w-full rounded-md border border-[rgba(139,92,246,0.2)] bg-[#0A0A0D] px-4 text-white placeholder:text-gray-400 focus:border-[#8B5CF6] focus:ring-[#8B5CF6]"
+                                                        className="h-12 w-full rounded-md border border-[rgba(37,99,235,0.2)] bg-[#0F1F3D] px-4 text-white placeholder:text-gray-400 focus:border-[#F97316] focus:ring-[#F97316]"
                                                     />
                                                 </FormControl>
                                                 <FormMessage />
@@ -157,7 +157,7 @@ export function ExitIntentPopup() {
                                     />
                                     <Button
                                         type="submit"
-                                        className="h-[50px] w-full rounded-md bg-gradient-to-r from-[#8B5CF6] to-[#6D28D9] text-lg font-semibold text-white hover:brightness-110 shadow-[0_0_20px_rgba(139,92,246,0.4)] transition-all"
+                                        className="h-[50px] w-full rounded-md bg-gradient-to-r from-[#F97316] to-[#EA580C] text-lg font-semibold text-white hover:brightness-110 shadow-[0_4px_24px_rgba(249,115,22,0.6)] hover:shadow-[0_6px_32px_rgba(249,115,22,0.8)] transition-all"
                                     >
                                         Enviar guia
                                     </Button>
