@@ -26,6 +26,7 @@ import {
 } from "@/components/ui/select"
 import { formDiscoverySchema } from "@/lib/schemas"
 import { toast } from "sonner"
+import { cn } from "@/lib/utils"
 
 const SYSTEM_OPTIONS = [
     "Gmail", "Slack", "Trello", "Google Calendar", "WhatsApp",
@@ -242,15 +243,21 @@ export function FormDiscovery() {
                                         control={form.control}
                                         name="sistemas"
                                         render={({ field }) => {
+                                            const isChecked = field.value?.includes(item);
                                             return (
                                                 <FormItem
                                                     key={item}
-                                                    className="flex flex-row items-start space-x-3 space-y-0"
+                                                    className={cn(
+                                                        "flex flex-row items-center space-x-3 space-y-0 rounded-lg p-3 sm:p-4 border transition-all cursor-pointer",
+                                                        isChecked
+                                                            ? "bg-[#525968] border-[rgba(255,255,255,0.35)]"
+                                                            : "bg-[#3f4551] border-[rgba(255,255,255,0.15)] hover:bg-[#4a5060] hover:border-[rgba(255,255,255,0.25)]"
+                                                    )}
                                                 >
                                                     <FormControl>
                                                         <Checkbox
-                                                            className="data-[state=checked]:bg-[#0088cc] data-[state=checked]:border-[#0088cc] border-[#5a5f6b] bg-[#4a4a50]"
-                                                            checked={field.value?.includes(item)}
+                                                            className="data-[state=checked]:bg-[#0088cc] data-[state=checked]:border-[#0088cc] border-[#808080] bg-[#2d3139]"
+                                                            checked={isChecked}
                                                             onCheckedChange={(checked) => {
                                                                 return checked
                                                                     ? field.onChange([...field.value, item])
@@ -262,7 +269,7 @@ export function FormDiscovery() {
                                                             }}
                                                         />
                                                     </FormControl>
-                                                    <FormLabel className="font-normal">
+                                                    <FormLabel className="font-normal text-[#e0e0e0] cursor-pointer flex-1">
                                                         {item}
                                                     </FormLabel>
                                                 </FormItem>
