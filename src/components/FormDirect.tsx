@@ -113,7 +113,7 @@ export function FormDirect() {
                         name="whatsapp"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>WhatsApp (para agilizar contato)</FormLabel>
+                                <FormLabel>WhatsApp</FormLabel>
                                 <FormControl>
                                     <Input placeholder="(00) 00000-0000" type="tel" {...field} className="bg-[#0F1F3D] border-[rgba(37,99,235,0.2)] text-white focus:border-[#F97316] focus:ring-[#F97316]" />
                                 </FormControl>
@@ -207,7 +207,7 @@ export function FormDirect() {
                     )}
                 />
                 <Button type="submit" className="w-full bg-gradient-to-br from-[#F97316] to-[#EA580C] text-white shadow-[0_4px_24px_rgba(249,115,22,0.6)] hover:shadow-[0_6px_32px_rgba(249,115,22,0.8)] transition-all" disabled={isLoading}>
-                    {isLoading ? "Enviando..." : "Enviar e Agendar Reunião"}
+                    {isLoading ? "Enviando..." : "Enviar e agendar reunião"}
                 </Button>
             </form>
         </Form >

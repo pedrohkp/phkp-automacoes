@@ -39,20 +39,12 @@ export function SectionForms() {
 
                         <TabsContent value="direct" className="mt-0">
                             {/* Note: Internal form labels could be translated too, but for now we focus on the section structure */}
-                            <div className="text-center mb-8">
-                                <h3 className="font-semibold text-2xl text-white">{t.forms.direct.title}</h3>
-                                <p className="text-[#9CA3AF] mt-2">{t.forms.direct.subtitle}</p>
-                            </div>
                             <div className="bg-[#1A2B4F] border border-[rgba(37,99,235,0.15)] rounded-2xl p-6 md:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
                                 <FormDirect />
                             </div>
                         </TabsContent>
 
                         <TabsContent value="discovery" className="mt-0">
-                            <div className="text-center mb-8">
-                                <h3 className="font-semibold text-2xl text-white">{t.forms.discovery.title}</h3>
-                                <p className="text-[#9CA3AF] mt-2">{t.forms.discovery.subtitle}</p>
-                            </div>
                             <div className="bg-[#1A2B4F] border border-[rgba(37,99,235,0.15)] rounded-2xl p-6 md:p-8 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
                                 <FormDiscovery />
                             </div>

@@ -116,7 +116,7 @@ export function FormDiscovery() {
                     name="empresa"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Empresa (Opcional)</FormLabel>
+                            <FormLabel>Empresa</FormLabel>
                             <FormControl>
                                 <Input placeholder="Nome da sua empresa" {...field} className="bg-[#0F1F3D] border-[rgba(37,99,235,0.2)] text-white focus:border-[#F97316] focus:ring-[#F97316]" />
                             </FormControl>

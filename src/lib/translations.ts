@@ -25,12 +25,12 @@ export const translations = {
         about: {
             title: "Quem está por trás das automações",
             role: "Especialista em automação de processos",
-            p1: "Por 7 anos atuei como gerente comercial e coordenador de licitações em uma distribuidora de produtos hospitalares de grande porte, liderando uma equipe de 14 representantes comerciais e operando processos críticos de venda em um mercado altamente regulado.",
-            p2: "Meu trabalho sempre foi organizar operações complexas: analisar cenários, estruturar propostas, eliminar falhas e transformar rotinas confusas em processos previsíveis.",
-            p3: "Hoje aplico essa mesma lógica usando automação e IA. Crio sistemas que executam tarefas operacionais automaticamente — atendimento, envios, acompanhamento e organização de dados — permitindo que empresas ganhem tempo sem aumentar equipe.",
-            p4_1: "Não venho do mundo da programação.",
-            p4_2: "Venho do mundo real das empresas.",
-            p4_3: "A tecnologia é apenas a ferramenta para fazer a operação funcionar melhor.",
+            p1: "Diferente de desenvolvedores que aprenderam automação na teoria, eu aprendi na prática — gerenciando equipes comerciais, coordenando licitações e integrando setores que não conversavam entre si.",
+            p2: "Durante 7 anos como gerente comercial no setor hospitalar, vi empresas perderem contratos por falhas operacionais que uma automação simples resolveria. Vi vendedores anotando pedidos no papel. Vi planilhas desatualizadas travando decisões de diretoria.",
+            p3: "Quando descobri o n8n, percebi: não é sobre código. É sobre entender o fluxo real do negócio e conectar os pontos certos.",
+            p4_1: "Hoje, uno visão estratégica de quem geriu processos complexos com execução técnica de automação. Resultado: soluções que funcionam no mundo real, não só no Notion do founder.",
+            p4_2: "",
+            p4_3: "",
         },
         roi: {
             title: "Quanto tempo e dinheiro você pode economizar?",

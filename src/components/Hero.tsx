@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { ArrowRight, CheckCircle2 } from "lucide-react"
+import { CheckCircle2 } from "lucide-react"
 import { useLanguage } from "@/components/language-provider"
 
 export function Hero() {
@@ -32,29 +32,30 @@ export function Hero() {
                 </p>
 
                 {/* CTA Buttons */}
-                <div className="flex flex-col gap-4 min-[400px]:flex-row pt-8">
-                    <Button
-                        size="lg"
-                        className="bg-gradient-to-br from-[#F97316] to-[#EA580C] shadow-[0_4px_24px_rgba(249,115,22,0.6)] hover:shadow-[0_6px_32px_rgba(249,115,22,0.8)] text-white font-bold text-lg px-8 py-6 border border-[rgba(249,115,22,0.2)] transition-all duration-300 rounded-full hover:translate-y-[-2px] relative overflow-hidden"
-                        asChild
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
+                    {/* Botão Principal */}
+                    <a
+                        href="https://calendar.app.google/HMcfcEcCeci7Zu4k6"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-8 py-4 bg-gradient-to-br from-[#F97316] to-[#EA580C] text-white font-semibold rounded-lg shadow-[0_4px_24px_rgba(249,115,22,0.6)] hover:shadow-[0_6px_32px_rgba(249,115,22,0.8)] hover:scale-105 transition-all text-lg flex items-center gap-2"
                     >
-                        <Link href="#personalizada">
-                            {t.hero.cta_primary}
-                            <ArrowRight className="ml-2 h-5 w-5" />
-                            <div className="absolute inset-0 bg-white/10 opacity-0 hover:opacity-100 transition-opacity duration-300" />
-                        </Link>
-                    </Button>
-                    <Button
-                        size="lg"
-                        variant="outline"
-                        className="text-lg px-8 py-6 rounded-full border-2 border-[#2563EB] text-[#2563EB] bg-transparent hover:bg-[#2563EB] hover:text-white shadow-sm transition-all"
-                        asChild
+                        <span>📅</span> Agendar Reunião Gratuita de 30min
+                    </a>
+
+                    {/* Botão Secundário */}
+                    <button
+                        onClick={() => document.getElementById('catalogo')?.scrollIntoView({ behavior: 'smooth' })}
+                        className="px-8 py-4 border-2 border-[#2563EB] text-[#2563EB] font-semibold rounded-lg hover:bg-[#2563EB] hover:text-white transition-all text-lg"
                     >
-                        <Link href="#catalogo">
-                            {t.hero.cta_secondary}
-                        </Link>
-                    </Button>
+                        Ver Automações Prontas
+                    </button>
                 </div>
+
+                {/* Texto abaixo dos botões */}
+                <p className="mt-6 text-[#9CA3AF] text-sm text-center max-w-md mx-auto">
+                    Sem compromisso. Sem taxa de setup. Só uma conversa sobre como economizar tempo.
+                </p>
 
                 {/* Social Proof / Benefit Pills */}
                 <div className="flex flex-wrap items-center justify-center gap-6 text-base font-medium text-[#E5E7EB] mt-12 opacity-90">

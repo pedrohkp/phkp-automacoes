@@ -7,12 +7,23 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { useLanguage } from "@/components/language-provider"
 
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+
 export function SectionROI() {
     const { t } = useLanguage()
     const [hours, setHours] = React.useState([20])
     const [rate, setRate] = React.useState([50])
+    const [errorRate, setErrorRate] = React.useState(10)
+    const [opportunityCost, setOpportunityCost] = React.useState(0)
 
-    const savings = Math.round((hours[0] * 4 * rate[0]) * 0.7)
+    // Formula:
+    // EconomyTime = (hours * 4 * rate * 0.7)
+    // ReworkCost = (hours * 4 * rate * (errorRate / 100))
+    // TotalSavings = EconomyTime + ReworkCost + OpportunityCost
+    const economyTime = (hours[0] * 4 * rate[0] * 0.7)
+    const reworkCost = (hours[0] * 4 * rate[0] * (errorRate / 100))
+    const savings = Math.round(economyTime + reworkCost + opportunityCost)
 
     return (
         <section id="calculadora" className="w-full bg-[#0F1F3D] border-t border-[rgba(37,99,235,0.15)] py-20 md:py-20 scroll-mt-20">
@@ -26,10 +37,11 @@ export function SectionROI() {
                     </p>
                 </div>
 
-                <div className="grid gap-8 md:grid-cols-2 items-center bg-[#1A2B4F] border border-[rgba(37,99,235,0.15)] rounded-3xl p-6 md:p-12 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+                <div className="grid gap-8 md:grid-cols-2 items-start bg-[#1A2B4F] border border-[rgba(37,99,235,0.15)] rounded-3xl p-6 md:p-12 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
 
-                    {/* Sliders Column */}
-                    <div className="space-y-10">
+                    {/* Inputs Column */}
+                    <div className="space-y-8">
+                        {/* Hours Slider */}
                         <div className="space-y-4">
                             <div className="flex justify-between items-center">
                                 <label className="font-medium text-sm md:text-base text-[#E5E7EB]">
@@ -48,6 +60,7 @@ export function SectionROI() {
                             />
                         </div>
 
+                        {/* Rate Slider */}
                         <div className="space-y-4">
                             <div className="flex justify-between items-center">
                                 <label className="font-medium text-sm md:text-base text-[#E5E7EB]">
@@ -65,6 +78,35 @@ export function SectionROI() {
                                 step={5}
                                 className="py-4 [&>.relative>.bg-primary]:bg-[#F97316] [&>.relative>.bg-secondary]:bg-[#0F1F3D] [&_span:focus-visible]:ring-[#F97316] [&_span]:border-[#F97316] [&_span]:bg-[#0F1F3D] [&_span]:shadow-[0_0_10px_rgba(249,115,22,0.7)]"
                             />
+                        </div>
+
+                        {/* Error Rate Input */}
+                        <div className="space-y-3">
+                            <Label htmlFor="errorRate" className="text-[#E5E7EB] font-medium">Taxa de erro em processos manuais (%)</Label>
+                            <Input
+                                id="errorRate"
+                                type="number"
+                                min={0}
+                                max={100}
+                                value={errorRate}
+                                onChange={(e) => setErrorRate(Number(e.target.value))}
+                                className="bg-[#0F1F3D] border-[rgba(37,99,235,0.3)] text-white focus-visible:ring-[#F97316] focus-visible:border-[#F97316]"
+                            />
+                            <p className="text-xs text-[#9CA3AF]">Retrabalho por erros de digitação, esquecimentos, etc.</p>
+                        </div>
+
+                        {/* Opportunity Cost Input */}
+                        <div className="space-y-3">
+                            <Label htmlFor="opportunityCost" className="text-[#E5E7EB] font-medium">Quanto você deixa de ganhar por não ter tempo? (R$/mês)</Label>
+                            <Input
+                                id="opportunityCost"
+                                type="number"
+                                min={0}
+                                value={opportunityCost}
+                                onChange={(e) => setOpportunityCost(Number(e.target.value))}
+                                className="bg-[#0F1F3D] border-[rgba(37,99,235,0.3)] text-white focus-visible:ring-[#F97316] focus-visible:border-[#F97316]"
+                            />
+                            <p className="text-xs text-[#9CA3AF]">Ex: vendas perdidas, projetos atrasados</p>
                         </div>
                     </div>
 
@@ -91,6 +133,10 @@ export function SectionROI() {
                                 <ArrowRight className="ml-2 h-4 w-4" />
                             </Link>
                         </Button>
+
+                        <p className="text-xs text-blue-100/70 mt-4 italic">
+                            * Cálculo baseado em 70% de eficiência da automação (padrão do mercado) + custo real de retrabalho por erro humano. Valores reais variam por processo.
+                        </p>
                     </div>
 
                 </div>
