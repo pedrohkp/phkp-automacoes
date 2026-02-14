@@ -89,8 +89,8 @@ export const translations = {
                 subtitle: "Se você já tem claro qual automação deseja, preencha abaixo para agendar uma reunião de implementação.",
             },
             discovery: {
-                title: "Preciso de ajuda",
-                subtitle: "Responda algumas perguntas para entendermos seus processos e sugerirmos automações personalizadas.",
+                title: "Não sei por onde começar",
+                subtitle: "Receba um diagnóstico gratuito das suas tarefas repetitivas + reunião de 30min para criar seu plano de automação personalizado",
             }
         },
         faq: {

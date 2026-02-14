@@ -55,7 +55,7 @@ export function Header() {
     return (
         <header
             className={`fixed top-0 left-0 right-0 z-[999] transition-all duration-300 ${isScrolled
-                ? "bg-[#1a1a1a]/95 backdrop-blur-md border-b border-[rgba(0,136,204,0.2)] shadow-[0_4px_30px_rgba(0,0,0,0.1)] h-[80px]"
+                ? "bg-[#0A0A0D]/95 backdrop-blur-md border-b border-[rgba(139,92,246,0.2)] shadow-[0_4px_30px_rgba(0,0,0,0.1)] h-[80px]"
                 : "bg-transparent h-[90px]"
                 } flex items-center`}
         >
@@ -63,8 +63,8 @@ export function Header() {
                 <Link
                     href="#hero"
                     onClick={(e) => scrollToSection(e, "#hero")}
-                    className="flex items-center space-x-2 font-bold text-2xl tracking-tight text-white transition-all hover:text-[#0088cc]"
-                    style={{ textShadow: "0 0 10px rgba(0, 136, 204, 0.3)" }}
+                    className="flex items-center space-x-2 font-bold text-2xl tracking-tight text-white transition-all hover:text-[#8B5CF6]"
+                    style={{ textShadow: "0 0 10px rgba(139, 92, 246, 0.3)" }}
                 >
                     <span>PHKP Soluções</span>
                 </Link>
@@ -76,18 +76,18 @@ export function Header() {
                             key={item.name}
                             href={item.href}
                             onClick={(e) => scrollToSection(e, item.href)}
-                            className="text-sm font-medium text-[#e0e0e0] hover:text-[#0088cc] transition-all duration-300 relative group"
+                            className="text-sm font-medium text-[#e0e0e0] hover:text-[#8B5CF6] transition-all duration-300 relative group"
                             style={{ textShadow: "0 0 10px rgba(0, 0, 0, 0)" }}
                         >
-                            <span className="group-hover:drop-shadow-[0_0_8px_rgba(0,136,204,0.8)] transition-all">
+                            <span className="group-hover:drop-shadow-[0_0_8px_rgba(139,92,246,0.8)] transition-all">
                                 {item.name}
                             </span>
-                            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#0088cc] transition-all duration-300 group-hover:w-full"></span>
+                            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#8B5CF6] transition-all duration-300 group-hover:w-full"></span>
                         </Link>
                     ))}
                     <Button
                         asChild
-                        className="bg-gradient-to-r from-[#0088cc] to-[#006699] hover:brightness-110 text-white font-bold shadow-[0_4px_20px_rgba(0,136,204,0.5)] border border-[rgba(0,136,204,0.4)] inset-ring inset-ring-white/15 transition-all duration-300 rounded-full px-6 hover:translate-y-[-2px]"
+                        className="bg-gradient-to-r from-[#8B5CF6] to-[#6D28D9] hover:brightness-110 text-white font-bold shadow-[0_4px_24px_rgba(139,92,246,0.5)] border border-[rgba(139,92,246,0.4)] inset-ring inset-ring-white/15 transition-all duration-300 rounded-full px-6 hover:translate-y-[-2px]"
                     >
                         <Link href="#personalizada" onClick={(e) => scrollToSection(e, "#personalizada")}>
                             {t.nav.start}
@@ -103,26 +103,26 @@ export function Header() {
                     <LanguageToggle />
                     <Sheet>
                         <SheetTrigger asChild>
-                            <Button variant="ghost" size="icon" className="text-[#e0e0e0] hover:text-[#0088cc]">
+                            <Button variant="ghost" size="icon" className="text-[#e0e0e0] hover:text-[#8B5CF6]">
                                 <Menu className="h-6 w-6" />
                                 <span className="sr-only">Menu</span>
                             </Button>
                         </SheetTrigger>
-                        <SheetContent side="right" className="bg-[#1a1a1c] border-l border-[rgba(0,136,204,0.2)] text-[#e0e0e0]">
+                        <SheetContent side="right" className="bg-[#0A0A0D] border-l border-[rgba(139,92,246,0.2)] text-[#e0e0e0]">
                             <nav className="flex flex-col gap-6 mt-8">
                                 {navItems.map((item) => (
                                     <Link
                                         key={item.name}
                                         href={item.href}
                                         onClick={(e) => scrollToSection(e, item.href)}
-                                        className="text-lg font-medium hover:text-[#0088cc] transition-colors"
+                                        className="text-lg font-medium hover:text-[#8B5CF6] transition-colors"
                                     >
                                         {item.name}
                                     </Link>
                                 ))}
                                 <Button
                                     asChild
-                                    className="bg-gradient-to-r from-[#0088cc] to-[#006699] text-white w-full mt-4 font-bold shadow-[0_4px_20px_rgba(0,136,204,0.5)]"
+                                    className="bg-gradient-to-r from-[#8B5CF6] to-[#6D28D9] text-white w-full mt-4 font-bold shadow-[0_4px_20px_rgba(139,92,246,0.5)]"
                                 >
                                     <Link href="#personalizada" onClick={(e) => scrollToSection(e, "#personalizada")}>
                                         {t.nav.start}

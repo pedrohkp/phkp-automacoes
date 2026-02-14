@@ -12,7 +12,7 @@ export function SectionFAQ() {
     const { t } = useLanguage()
 
     return (
-        <section id="faq" className="w-full bg-[#242730] border-t border-[rgba(255,255,255,0.05)] py-14 md:py-20 lg:py-28 scroll-mt-20">
+        <section id="faq" className="w-full bg-[#0A0A0D] border-t border-[rgba(139,92,246,0.15)] py-14 md:py-20 lg:py-28 scroll-mt-20">
             <div className="container max-w-3xl">
                 <div className="flex flex-col items-center justify-center gap-4 text-center mb-12">
                     <h2 className="font-bold text-3xl leading-[1.1] sm:text-3xl md:text-6xl text-white">
@@ -25,9 +25,9 @@ export function SectionFAQ() {
 
                 <Accordion type="single" collapsible className="w-full space-y-4">
                     {t.faq.items.map((item, index) => (
-                        <AccordionItem key={index} value={`item-${index}`} className="border-[#3a3f4b] bg-[#343945] px-6 rounded-xl border">
-                            <AccordionTrigger className="text-left text-white hover:text-[#0088cc] hover:no-underline font-medium text-lg py-6">{item.q}</AccordionTrigger>
-                            <AccordionContent className="text-[#c0c0c0] text-base pb-6">
+                        <AccordionItem key={index} value={`item-${index}`} className="border-[rgba(139,92,246,0.15)] bg-[#1A1A22] px-6 rounded-xl border">
+                            <AccordionTrigger className="text-left text-white hover:text-[#8B5CF6] hover:no-underline font-medium text-lg py-4">{item.q}</AccordionTrigger>
+                            <AccordionContent className="text-[#c0c0c0] text-base pb-4">
                                 {item.a ? (
                                     item.a
                                 ) : (

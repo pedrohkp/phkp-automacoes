@@ -1,5 +1,7 @@
 "use client"
 
+import { useRouter } from "next/navigation"
+
 import * as React from "react"
 
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -16,24 +18,12 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Checkbox } from "@/components/ui/checkbox"
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select"
 import { formDiscoverySchema } from "@/lib/schemas"
 import { toast } from "sonner"
 import { cn } from "@/lib/utils"
 
-const SYSTEM_OPTIONS = [
-    "Gmail", "Slack", "Trello", "Google Calendar", "WhatsApp",
-    "Telegram", "Excel/Sheets", "ERP", "CRM", "Outros"
-]
-
 export function FormDiscovery() {
+    const router = useRouter()
     const form = useForm<z.infer<typeof formDiscoverySchema>>({
         resolver: zodResolver(formDiscoverySchema),
         defaultValues: {
@@ -41,10 +31,7 @@ export function FormDiscovery() {
             email: "",
             whatsapp: "",
             empresa: "",
-            dores_operacionais: "",
-            tarefas_repetitivas: "",
-            sistemas: [],
-            // horas_semanais and tamanho_equipe are undefined initially for Select placeholder
+            mensagem: "",
         },
     })
 
@@ -59,24 +46,17 @@ export function FormDiscovery() {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    tipo: "descoberta",
-                    nome: values.nome,
-                    email: values.email,
-                    whatsapp: values.whatsapp,
-                    empresa: values.empresa,
-                    mensagem: `Dores: ${values.dores_operacionais} | Tarefas: ${values.tarefas_repetitivas}`,
-                    dores_operacionais: values.dores_operacionais,
-                    tarefas_repetitivas: values.tarefas_repetitivas,
-                    horas_semanais: values.horas_semanais,
-                    tamanho_equipe: values.tamanho_equipe,
-                    sistemas: values.sistemas,
+                    tipo: "diagnostico_descoberta",
+                    ...values,
                     timestamp: new Date().toISOString(),
                 }),
             })
 
             if (response.ok) {
-                toast.success("Recebemos sua mensagem! Retornaremos em breve.")
+                toast.success("Recebemos sua mensagem! Redirecionando para agendamento...")
                 form.reset()
+                // Redirect to calendar
+                window.location.href = "https://calendar.app.google/HMcfcEcCeci7Zu4k6"
             } else {
                 throw new Error("Erro na requisição")
             }
@@ -97,7 +77,7 @@ export function FormDiscovery() {
                         <FormItem>
                             <FormLabel>Nome Completo</FormLabel>
                             <FormControl>
-                                <Input placeholder="Seu nome" {...field} className="bg-[#2d3139] border-[#4a4a50] text-[#e0e0e0] focus:border-[#0088cc] focus:ring-[#0088cc]" />
+                                <Input placeholder="Seu nome" {...field} className="bg-[#1A1A22] border-[rgba(139,92,246,0.15)] text-[#e0e0e0] focus:border-[#8B5CF6] focus:ring-[#8B5CF6]" />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -111,7 +91,7 @@ export function FormDiscovery() {
                             <FormItem>
                                 <FormLabel>Email</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="seu@email.com" {...field} className="bg-[#2d3139] border-[#4a4a50] text-[#e0e0e0] focus:border-[#0088cc] focus:ring-[#0088cc]" />
+                                    <Input placeholder="seu@email.com" {...field} className="bg-[#1A1A22] border-[rgba(139,92,246,0.15)] text-[#e0e0e0] focus:border-[#8B5CF6] focus:ring-[#8B5CF6]" />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -122,9 +102,9 @@ export function FormDiscovery() {
                         name="whatsapp"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>WhatsApp (para agilizar contato)</FormLabel>
+                                <FormLabel>WhatsApp</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="(00) 00000-0000" type="tel" {...field} className="bg-[#2d3139] border-[#4a4a50] text-[#e0e0e0] focus:border-[#0088cc] focus:ring-[#0088cc]" />
+                                    <Input placeholder="(00) 00000-0000" type="tel" {...field} className="bg-[#1A1A22] border-[rgba(139,92,246,0.15)] text-[#e0e0e0] focus:border-[#8B5CF6] focus:ring-[#8B5CF6]" />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -136,9 +116,9 @@ export function FormDiscovery() {
                     name="empresa"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Empresa</FormLabel>
+                            <FormLabel>Empresa (Opcional)</FormLabel>
                             <FormControl>
-                                <Input placeholder="Nome da sua empresa" {...field} className="bg-[#2d3139] border-[#4a4a50] text-[#e0e0e0] focus:border-[#0088cc] focus:ring-[#0088cc]" />
+                                <Input placeholder="Nome da sua empresa" {...field} className="bg-[#1A1A22] border-[rgba(139,92,246,0.15)] text-[#e0e0e0] focus:border-[#8B5CF6] focus:ring-[#8B5CF6]" />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -146,31 +126,14 @@ export function FormDiscovery() {
                 />
                 <FormField
                     control={form.control}
-                    name="dores_operacionais"
+                    name="mensagem"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Principais Dores Operacionais</FormLabel>
+                            <FormLabel>Mensagem</FormLabel>
                             <FormControl>
                                 <Textarea
-                                    placeholder="O que mais atrapalha sua operação hoje?"
-                                    className="min-h-[80px] bg-[#2d3139] border-[#4a4a50] text-[#e0e0e0] focus:border-[#0088cc] focus:ring-[#0088cc]"
-                                    {...field}
-                                />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <FormField
-                    control={form.control}
-                    name="tarefas_repetitivas"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Tarefas Repetitivas</FormLabel>
-                            <FormControl>
-                                <Textarea
-                                    placeholder="Ex: Atualizar planilhas, responder emails padrão..."
-                                    className="min-h-[80px] bg-[#2d3139] border-[#4a4a50] text-[#e0e0e0] focus:border-[#0088cc] focus:ring-[#0088cc]"
+                                    placeholder="Descreva suas principais tarefas repetitivas ou dores do dia a dia..."
+                                    className="min-h-[120px] bg-[#1A1A22] border-[rgba(139,92,246,0.15)] text-[#e0e0e0] focus:border-[#8B5CF6] focus:ring-[#8B5CF6]"
                                     {...field}
                                 />
                             </FormControl>
@@ -179,111 +142,8 @@ export function FormDiscovery() {
                     )}
                 />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <FormField
-                        control={form.control}
-                        name="horas_semanais"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Horas Gastas/Semana</FormLabel>
-                                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                    <FormControl>
-                                        <SelectTrigger className="bg-[#2d3139] border-[#4a4a50] text-[#e0e0e0] focus:border-[#0088cc] focus:ring-[#0088cc]">
-                                            <SelectValue placeholder="Selecione..." />
-                                        </SelectTrigger>
-                                    </FormControl>
-                                    <SelectContent className="bg-[#2d3139] border-[#4a4a50] text-[#e0e0e0]">
-                                        <SelectItem value="0-5h">0-5h</SelectItem>
-                                        <SelectItem value="5-10h">5-10h</SelectItem>
-                                        <SelectItem value="10-20h">10-20h</SelectItem>
-                                        <SelectItem value="20+h">20+h</SelectItem>
-                                    </SelectContent>
-                                </Select>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-                    <FormField
-                        control={form.control}
-                        name="tamanho_equipe"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel>Tamanho da Equipe</FormLabel>
-                                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                                    <FormControl>
-                                        <SelectTrigger className="bg-[#2d3139] border-[#4a4a50] text-[#e0e0e0] focus:border-[#0088cc] focus:ring-[#0088cc]">
-                                            <SelectValue placeholder="Selecione..." />
-                                        </SelectTrigger>
-                                    </FormControl>
-                                    <SelectContent className="bg-[#2d3139] border-[#4a4a50] text-[#e0e0e0]">
-                                        <SelectItem value="1-5">1-5</SelectItem>
-                                        <SelectItem value="6-20">6-20</SelectItem>
-                                        <SelectItem value="21-50">21-50</SelectItem>
-                                        <SelectItem value="50+">50+</SelectItem>
-                                    </SelectContent>
-                                </Select>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-                </div>
-
-                <FormField
-                    control={form.control}
-                    name="sistemas"
-                    render={() => (
-                        <FormItem>
-                            <div className="mb-4">
-                                <FormLabel className="text-base">Sistemas Utilizados</FormLabel>
-                            </div>
-                            <div className="grid grid-cols-2 gap-2">
-                                {SYSTEM_OPTIONS.map((item) => (
-                                    <FormField
-                                        key={item}
-                                        control={form.control}
-                                        name="sistemas"
-                                        render={({ field }) => {
-                                            const isChecked = field.value?.includes(item);
-                                            return (
-                                                <FormItem
-                                                    key={item}
-                                                    className={cn(
-                                                        "flex flex-row items-center space-x-3 space-y-0 rounded-lg p-3 sm:p-4 border transition-all cursor-pointer",
-                                                        isChecked
-                                                            ? "bg-[#525968] border-[rgba(255,255,255,0.35)]"
-                                                            : "bg-[#3f4551] border-[rgba(255,255,255,0.15)] hover:bg-[#4a5060] hover:border-[rgba(255,255,255,0.25)]"
-                                                    )}
-                                                >
-                                                    <FormControl>
-                                                        <Checkbox
-                                                            className="data-[state=checked]:bg-[#0088cc] data-[state=checked]:border-[#0088cc] border-[#808080] bg-[#2d3139]"
-                                                            checked={isChecked}
-                                                            onCheckedChange={(checked) => {
-                                                                return checked
-                                                                    ? field.onChange([...field.value, item])
-                                                                    : field.onChange(
-                                                                        field.value?.filter(
-                                                                            (value) => value !== item
-                                                                        )
-                                                                    )
-                                                            }}
-                                                        />
-                                                    </FormControl>
-                                                    <FormLabel className="font-normal text-[#e0e0e0] cursor-pointer flex-1">
-                                                        {item}
-                                                    </FormLabel>
-                                                </FormItem>
-                                            )
-                                        }}
-                                    />
-                                ))}
-                            </div>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <Button type="submit" variant="secondary" className="w-full" disabled={isLoading}>
-                    {isLoading ? "Enviando..." : "Enviar para Análise"}
+                <Button type="submit" className="w-full bg-gradient-to-br from-[#8B5CF6] to-[#6D28D9] text-white shadow-[0_4px_24px_rgba(139,92,246,0.4)] hover:shadow-[0_0_30px_rgba(139,92,246,0.7)] transition-all" disabled={isLoading}>
+                    {isLoading ? "Enviando..." : "Receber diagnóstico e agendar"}
                 </Button>
             </form>
         </Form >

@@ -7,6 +7,7 @@ import { Header } from "@/components/Header"
 import { Footer } from "@/components/Footer"
 import { Toaster } from "@/components/ui/sonner"
 import { LanguageProvider } from "@/components/language-provider"
+import { ExitIntentPopup } from "@/components/ExitIntentPopup"
 
 
 const geistSans = Geist({
@@ -46,6 +47,7 @@ export default function RootLayout({
               <main className="flex-1">{children}</main>
               <Footer />
             </div>
+            <ExitIntentPopup />
             <Toaster />
           </LanguageProvider>
         </ThemeProvider>

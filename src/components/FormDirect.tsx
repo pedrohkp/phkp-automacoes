@@ -1,5 +1,7 @@
 "use client"
 
+import { useRouter } from "next/navigation"
+
 import * as React from "react"
 
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -19,6 +21,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Checkbox } from "@/components/ui/checkbox"
 import { formDirectSchema } from "@/lib/schemas"
 import { toast } from "sonner"
+import { cn } from "@/lib/utils"
 
 const INTEGRATION_OPTIONS = [
     "Gmail", "Slack", "Trello", "Google Calendar", "WhatsApp",
@@ -26,6 +29,7 @@ const INTEGRATION_OPTIONS = [
 ]
 
 export function FormDirect() {
+    const router = useRouter()
     const form = useForm<z.infer<typeof formDirectSchema>>({
         resolver: zodResolver(formDirectSchema),
         defaultValues: {
@@ -49,7 +53,7 @@ export function FormDirect() {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    tipo: "contratacao",
+                    tipo: "ja_sei_o_que_preciso",
                     nome: values.nome,
                     email: values.email,
                     empresa: values.empresa,
@@ -60,8 +64,10 @@ export function FormDirect() {
             })
 
             if (response.ok) {
-                toast.success("Recebemos sua mensagem! Retornaremos em breve.")
+                toast.success("Recebemos sua mensagem! Redirecionando para agendamento...")
                 form.reset()
+                // Redirect to calendar
+                window.location.href = "https://calendar.app.google/HMcfcEcCeci7Zu4k6"
             } else {
                 throw new Error("Erro na requisição")
             }
@@ -82,7 +88,7 @@ export function FormDirect() {
                         <FormItem>
                             <FormLabel>Nome Completo</FormLabel>
                             <FormControl>
-                                <Input placeholder="Seu nome" {...field} className="bg-[#2d3139] border-[#4a4a50] text-[#e0e0e0] focus:border-[#0088cc] focus:ring-[#0088cc]" />
+                                <Input placeholder="Seu nome" {...field} className="bg-[#1A1A22] border-[rgba(139,92,246,0.15)] text-[#e0e0e0] focus:border-[#8B5CF6] focus:ring-[#8B5CF6]" />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -96,7 +102,7 @@ export function FormDirect() {
                             <FormItem>
                                 <FormLabel>Email</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="seu@email.com" {...field} className="bg-[#2d3139] border-[#4a4a50] text-[#e0e0e0] focus:border-[#0088cc] focus:ring-[#0088cc]" />
+                                    <Input placeholder="seu@email.com" {...field} className="bg-[#1A1A22] border-[rgba(139,92,246,0.15)] text-[#e0e0e0] focus:border-[#8B5CF6] focus:ring-[#8B5CF6]" />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -109,7 +115,7 @@ export function FormDirect() {
                             <FormItem>
                                 <FormLabel>WhatsApp (para agilizar contato)</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="(00) 00000-0000" type="tel" {...field} className="bg-[#2d3139] border-[#4a4a50] text-[#e0e0e0] focus:border-[#0088cc] focus:ring-[#0088cc]" />
+                                    <Input placeholder="(00) 00000-0000" type="tel" {...field} className="bg-[#1A1A22] border-[rgba(139,92,246,0.15)] text-[#e0e0e0] focus:border-[#8B5CF6] focus:ring-[#8B5CF6]" />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -123,7 +129,7 @@ export function FormDirect() {
                         <FormItem>
                             <FormLabel>Empresa</FormLabel>
                             <FormControl>
-                                <Input placeholder="Nome da sua empresa" {...field} className="bg-[#2d3139] border-[#4a4a50] text-[#e0e0e0] focus:border-[#0088cc] focus:ring-[#0088cc]" />
+                                <Input placeholder="Nome da sua empresa" {...field} className="bg-[#1A1A22] border-[rgba(139,92,246,0.15)] text-[#e0e0e0] focus:border-[#8B5CF6] focus:ring-[#8B5CF6]" />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -138,7 +144,7 @@ export function FormDirect() {
                             <FormControl>
                                 <Textarea
                                     placeholder="Ex: Preciso enviar emails automáticos quando um cliente faz pedido..."
-                                    className="min-h-[100px] bg-[#2d3139] border-[#4a4a50] text-[#e0e0e0] focus:border-[#0088cc] focus:ring-[#0088cc]"
+                                    className="min-h-[100px] bg-[#1A1A22] border-[rgba(139,92,246,0.15)] text-[#e0e0e0] focus:border-[#8B5CF6] focus:ring-[#8B5CF6]"
                                     {...field}
                                 />
                             </FormControl>
@@ -161,14 +167,21 @@ export function FormDirect() {
                                         control={form.control}
                                         name="integracoes"
                                         render={({ field }) => {
+                                            const isChecked = field.value?.includes(item);
                                             return (
                                                 <FormItem
                                                     key={item}
-                                                    className="flex flex-row items-start space-x-3 space-y-0"
+                                                    className={cn(
+                                                        "flex flex-row items-center space-x-3 space-y-0 rounded-lg p-3 sm:p-4 border transition-all cursor-pointer",
+                                                        isChecked
+                                                            ? "bg-[#13131A] border-[#8B5CF6]"
+                                                            : "bg-[#1A1A22] border-[rgba(139,92,246,0.15)] hover:bg-[#13131A] hover:border-[#8B5CF6]"
+                                                    )}
                                                 >
                                                     <FormControl>
                                                         <Checkbox
-                                                            checked={field.value?.includes(item)}
+                                                            className="data-[state=checked]:bg-[#8B5CF6] data-[state=checked]:border-[#8B5CF6] border-[#808080] bg-[#1A1A22]"
+                                                            checked={isChecked}
                                                             onCheckedChange={(checked) => {
                                                                 return checked
                                                                     ? field.onChange([...field.value, item])
@@ -180,7 +193,7 @@ export function FormDirect() {
                                                             }}
                                                         />
                                                     </FormControl>
-                                                    <FormLabel className="font-normal">
+                                                    <FormLabel className="font-normal text-[#e0e0e0] cursor-pointer flex-1">
                                                         {item}
                                                     </FormLabel>
                                                 </FormItem>
@@ -193,7 +206,7 @@ export function FormDirect() {
                         </FormItem>
                     )}
                 />
-                <Button type="submit" className="w-full" disabled={isLoading}>
+                <Button type="submit" className="w-full bg-gradient-to-br from-[#8B5CF6] to-[#6D28D9] text-white shadow-[0_4px_24px_rgba(139,92,246,0.4)] hover:shadow-[0_0_30px_rgba(139,92,246,0.7)] transition-all" disabled={isLoading}>
                     {isLoading ? "Enviando..." : "Enviar e Agendar Reunião"}
                 </Button>
             </form>

@@ -10,92 +10,76 @@
 }
 
 :root {
-  /* Base Colors - PHKP Palette (Dark/Metallic Theme Default) */
-  /* Base Colors - PHKP Palette (Dark/Metallic Theme Default) */
-  --background: #242730;
-  --foreground: #ffffff;
-  /* H1 White */
+  /* Base Colors - Neon Purple + Dark Metallic Palette */
+  --background-main: #0A0A0D;
+  --background-secondary: #13131A;
+  --card-background: #1A1A22;
 
-  /* Alternating Backgrounds */
-  --bg-primary: #242730;
-  --bg-secondary: #2d3139;
-  --bg-tertiary: #343945;
-  /* New for Automation Section */
+  --primary-purple: #8B5CF6;
+  --primary-purple-dark: #7C3AED;
+  --primary-purple-deep: #6D28D9;
 
-  /* Text Colors */
-  --text-heading-main: #ffffff;
-  --text-heading-sec: #e0e0e0;
-  --text-body: #c0c0c0;
-  --text-muted: #808080;
+  --border-subtle: rgba(139, 92, 246, 0.15);
 
-  /* UI Elements */
-  --card: #343945;
-  /* Base card color, though gradients often used */
-  --card-automation: #343945;
-  /* New for Automation Section Cards */
-  --search-input: #343945;
-  /* New for Automation Section Inputs */
-  --card-foreground: #e0e0e0;
-  --popover: #343945;
-  --popover-foreground: #e0e0e0;
+  --text-white: #FFFFFF;
+  --text-gray: #A1A1AA;
+  --text-muted: #E0E0E0;
 
-  /* Brand Colors */
-  --primary: #0088cc;
-  /* Cyan Electric start */
-  --primary-hover: #006699;
-  --primary-foreground: #ffffff;
+  --neon-shadow: 0 4px 24px rgba(139, 92, 246, 0.4);
+  --neon-glow: 0 0 20px rgba(139, 92, 246, 0.5);
 
-  --secondary: #2d3139;
-  --secondary-foreground: #0088cc;
+  /* Mapping to Shadcn/Tailwind standard variables */
+  --background: #0A0A0D;
+  --foreground: #FFFFFF;
 
-  --muted: #2d3139;
-  --muted-foreground: #808080;
+  --card: #1A1A22;
+  --card-foreground: #E0E0E0;
 
-  --accent: #0088cc;
-  --accent-foreground: #ffffff;
+  --popover: #1A1A22;
+  --popover-foreground: #E0E0E0;
+
+  --primary: #8B5CF6;
+  --primary-foreground: #FFFFFF;
+
+  --secondary: #13131A;
+  --secondary-foreground: #8B5CF6;
+
+  --muted: #13131A;
+  --muted-foreground: #A1A1AA;
+
+  --accent: #8B5CF6;
+  --accent-foreground: #FFFFFF;
 
   --destructive: #ef4444;
-  --destructive-foreground: #ffffff;
+  --destructive-foreground: #FFFFFF;
 
-  /* Borders & Inputs */
-  --border: rgba(0, 136, 204, 0.2);
-  --border-automation: #3a3f4b;
-  /* New for Automation Section Borders */
-  --input: #343945;
-  --ring: rgba(0, 136, 204, 0.5);
+  --border: rgba(139, 92, 246, 0.15);
+  --input: #1A1A22;
+  --ring: rgba(139, 92, 246, 0.5);
 
   --radius: 0.5rem;
-
-  /* Chart Colors (mapped to blues/cyans mostly) */
-  --chart-1: 200 100% 40%;
-  /* #00bfff */
-  --chart-2: 205 100% 30%;
-  --chart-3: 200 100% 40%;
-  --chart-4: 210 100% 60%;
-  --chart-5: 220 100% 70%;
 }
 
 .dark {
-  /* Same as root since we are forcing this theme */
-  --background: #1a1a1c;
-  --foreground: #ffffff;
-  --card: #1e1e22;
-  --card-foreground: #e0e0e0;
-  --popover: #1e1e22;
-  --popover-foreground: #e0e0e0;
-  --primary: #0088cc;
-  --primary-foreground: #ffffff;
-  --secondary: #1e1e22;
-  --secondary-foreground: #0088cc;
-  --muted: #1e1e22;
-  --muted-foreground: #808080;
-  --accent: #0088cc;
-  --accent-foreground: #ffffff;
+  --background: #0A0A0D;
+  --foreground: #FFFFFF;
+  --card: #1A1A22;
+  --card-foreground: #E0E0E0;
+  --popover: #1A1A22;
+  --popover-foreground: #E0E0E0;
+  --primary: #8B5CF6;
+  --primary-foreground: #FFFFFF;
+  --secondary: #13131A;
+  --secondary-foreground: #8B5CF6;
+  --muted: #13131A;
+  --muted-foreground: #A1A1AA;
+  --accent: #8B5CF6;
+  --accent-foreground: #FFFFFF;
   --destructive: #7f1d1d;
-  --destructive-foreground: #ffffff;
-  --border: rgba(0, 136, 204, 0.2);
-  --input: rgba(30, 30, 34, 0.5);
-  --ring: rgba(0, 136, 204, 0.5);
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(139, 92, 246, 0.15);
+  --input: #1A1A22;
+  --ring: rgba(139, 92, 246, 0.5);
 }
 
 @theme inline {
@@ -118,11 +102,6 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);

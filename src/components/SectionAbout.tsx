@@ -7,16 +7,16 @@ export function SectionAbout() {
     const { t } = useLanguage()
 
     return (
-        <section id="sobre" className="w-full bg-[#2d3139] border-t border-[rgba(255,255,255,0.05)] py-20 md:py-20 scroll-mt-20">
+        <section id="sobre" className="w-full bg-[#13131A] border-t border-[rgba(139,92,246,0.15)] py-20 md:py-20 scroll-mt-20">
             <div className="container">
-                <div className="bg-gradient-to-r from-[#1e1e22] to-[#1a1a1c] border border-[rgba(0,136,204,0.4)] rounded-3xl p-8 md:p-12 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
+                <div className="bg-gradient-to-r from-[#1A1A22] to-[#13131A] border border-[rgba(139,92,246,0.4)] rounded-3xl p-8 md:p-12 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">
                     <h2 className="text-3xl font-bold tracking-tight mb-8 md:mb-12 text-center md:text-left text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
                         {t.about.title}
                     </h2>
 
                     <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                         {/* Photo Column */}
-                        <div className="relative aspect-square md:aspect-[4/5] rounded-2xl overflow-hidden bg-[#1a1a1c] shadow-[0_0_20px_rgba(0,136,204,0.3)] w-full max-w-[400px] mx-auto border-2 border-[#0088cc]">
+                        <div className="relative aspect-square md:aspect-[4/5] rounded-2xl overflow-hidden bg-[#0A0A0D] shadow-[0_0_20px_rgba(139,92,246,0.3)] w-full max-w-[400px] mx-auto border-2 border-[#8B5CF6]">
                             <Image
                                 src="/pedro-final.jpg"
                                 alt="Pedro Pavão - Especialista em Automação"
@@ -32,7 +32,7 @@ export function SectionAbout() {
                                 <h3 className="text-2xl md:text-3xl font-bold text-white mb-1 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
                                     Pedro Pavão
                                 </h3>
-                                <p className="text-base md:text-lg font-medium text-[#0088cc]">
+                                <p className="text-base md:text-lg font-medium text-[#8B5CF6]">
                                     {t.about.role}
                                 </p>
                             </div>
