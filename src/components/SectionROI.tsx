@@ -89,7 +89,7 @@ export function SectionROI() {
 
                         {/* Error Rate Input */}
                         <div className="space-y-3">
-                            <Label htmlFor="errorRate" className="text-[#E5E7EB] font-medium">Taxa de erro em processos manuais (%)</Label>
+                            <Label htmlFor="errorRate" className="text-[#E5E7EB] font-medium">{t.roi.label_error_rate}</Label>
                             <Input
                                 id="errorRate"
                                 type="number"
@@ -100,12 +100,12 @@ export function SectionROI() {
                                 onChange={handleErrorRateChange}
                                 className="bg-[#0F1F3D] border-[rgba(37,99,235,0.3)] text-white focus-visible:ring-[#F97316] focus-visible:border-[#F97316]"
                             />
-                            <p className="text-xs text-[#9CA3AF]">Retrabalho por erros de digitação, esquecimentos, etc.</p>
+                            <p className="text-xs text-[#9CA3AF]">{t.roi.desc_error_rate}</p>
                         </div>
 
                         {/* Opportunity Cost Input */}
                         <div className="space-y-3">
-                            <Label htmlFor="opportunityCost" className="text-[#E5E7EB] font-medium">Quanto você deixa de ganhar por não ter tempo? (R$/mês)</Label>
+                            <Label htmlFor="opportunityCost" className="text-[#E5E7EB] font-medium">{t.roi.label_opportunity}</Label>
                             <Input
                                 id="opportunityCost"
                                 type="number"
@@ -116,7 +116,7 @@ export function SectionROI() {
                                 className="bg-[#0F1F3D] border-[rgba(37,99,235,0.3)] text-white focus-visible:ring-[#F97316] focus-visible:border-[#F97316]"
                                 placeholder="500"
                             />
-                            <p className="text-xs text-[#9CA3AF]">Ex: vendas perdidas, projetos atrasados</p>
+                            <p className="text-xs text-[#9CA3AF]">{t.roi.desc_opportunity}</p>
                         </div>
                     </div>
 
@@ -127,11 +127,11 @@ export function SectionROI() {
 
                             {/* Highlighted Result Box */}
                             <div className="mb-6 p-6 bg-gradient-to-br from-[#F97316] to-[#EA580C] rounded-xl shadow-[0_4px_24px_rgba(249,115,22,0.6)] w-full">
-                                <p className="text-white text-sm font-medium mb-2">💰 Economia Estimada:</p>
+                                <p className="text-white text-sm font-medium mb-2">{t.roi.result_savings_label}</p>
                                 <p className="text-white text-4xl md:text-5xl font-bold">
                                     R$ {savings.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                                 </p>
-                                <p className="text-white/90 text-lg mt-1">por mês</p>
+                                <p className="text-white/90 text-lg mt-1">{t.roi.result_month_suffix}</p>
                             </div>
 
                             <p className="text-sm text-blue-100/80">
@@ -152,7 +152,7 @@ export function SectionROI() {
                         </Button>
 
                         <p className="text-xs text-blue-100/70 mt-4 italic">
-                            * Cálculo baseado em 70% de eficiência da automação (padrão do mercado) + custo real de retrabalho por erro humano. Valores reais variam por processo.
+                            {t.roi.disclaimer}
                         </p>
                     </div>
 

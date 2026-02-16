@@ -24,8 +24,16 @@ import { toast } from "sonner"
 import { cn } from "@/lib/utils"
 
 const INTEGRATION_OPTIONS = [
-    "Gmail", "Slack", "Trello", "Google Calendar", "WhatsApp",
-    "Telegram", "SAP", "Salesforce", "HubSpot", "Outros"
+    "Google Workspace (Gmail, Drive, Sheets, Calendar, etc)",
+    "Microsoft 365 (Outlook, Teams, OneDrive, etc)",
+    "Slack",
+    "Telegram",
+    "WhatsApp",
+    "Paypal",
+    "Airtable",
+    "Trello",
+    "GitHub",
+    "Outros"
 ]
 
 export function FormDirect() {

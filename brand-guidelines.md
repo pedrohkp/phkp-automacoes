@@ -1,296 +1,129 @@
-# ARQUIVO 2: brand-guidelines.md
+# Brand Guidelines & Design System v2.0
 
-# Brand Guidelines - Automações n8n
-
-## Visão do Projeto
-
-Landing page de conversão para serviço de automações com n8n. O objetivo é educar visitantes sobre o valor de automações e capturar leads qualificados através de dois fluxos distintos:
-
-1. Clientes que já sabem qual automação precisam
-2. Clientes que precisam de consultoria para identificar oportunidades
-
-## Público-Alvo
-
-- Pequenas e médias empresas
-- Empreendedores e gestores operacionais
-- Pessoas com dores de tarefas repetitivas
-- Tech-savvy mas não necessariamente desenvolvedores
-
-## Tom de Voz
-
-- **Consultivo, não vendedor:** Educar antes de vender
-- **Claro e direto:** Evitar jargões técnicos desnecessários
-- **Orientado a resultados:** Foco em ROI (tempo/dinheiro economizados)
-- **Profissional mas acessível:** Não corporativo frio, não informal demais
-
-## Identidade Visual
-
-### Referência de Design
-
-Google Antigravity Product Page: https://antigravity.google/product
-
-Características:
-- Layout clean, espaçamento generoso
-- Gradientes sutis
-- Animações suaves e funcionais
-- Hierarquia visual clara
-
-### Paleta de Cores
-
-**Light Mode:**
-- Background: `#FFFFFF`
-- Foreground: `#1A1A1A`
-- Primary: `#4285F4` (azul confiança/tech)
-- Secondary: `#34A853` (verde crescimento)
-- Accent: `#FBBC04` (amarelo destaque)
-- Muted: `#F8F9FA`
-
-**Dark Mode:**
-- Background: `#0F0F0F`
-- Foreground: `#E8EAED`
-- Primary: `#8AB4F8`
-- Secondary: `#81C995`
-- Accent: `#FDD663`
-- Muted: `#202124`
-
-### Tipografia
-
-- **Font:** Inter (Google Fonts)
-- **Headings:** font-weight 700, letter-spacing tight, tamanhos hierárquicos (H1 > H2 > H3)
-- **Body:** font-weight 400, line-height relaxed (1.6-1.8)
-- **CTA Buttons:** font-weight 600, uppercase tracking wide
-
-### Componentes
-
-**Cards:**
-- Border sutil (não heavy shadows)
-- Border radius moderado (12px)
-- Padding generoso (24px)
-- Hover state: scale 1.02, transition 200ms
-
-**Botões:**
-- Primário: filled com primary color
-- Secundário: outline com hover fill
-- Tamanhos: lg para CTAs principais, md para secundários
-- Hover: scale 1.02, brightness 110%
-
-**Inputs:**
-- Border sutil em estado normal
-- Focus ring com primary color
-- Placeholder com muted color
-- Error state com vermelho suave
-
-**Animações:**
-- Scroll reveal (fade-in + translate-y)
-- Hover states suaves (200-300ms)
-- Evitar animações pesadas/distrativas
-
-## Estrutura de Conteúdo
-
-### SEÇÃO 1: Hero + Educação sobre Automação
-
-#### Headline (H1)
-
-Orientado a resultado, não feature. Exemplos:
-- "Economize 20h/semana automatizando tarefas repetitivas"
-- "Reduza custos operacionais em até 60% com automações inteligentes"
-- "Pare de perder tempo com tarefas manuais"
-
-#### Subheadline
-
-1-2 frases explicando o que são automações de forma simples.
-
-**Exemplo:** "Conectamos seus sistemas e criamos fluxos automáticos que trabalham por você 24/7, eliminando trabalho manual e reduzindo erros."
-
-#### 3 Benefícios (Cards)
-
-**1. Economia de Tempo**
-- Ícone: relógio/timer
-- Copy: "Reduza até 80% do tempo gasto em tarefas manuais"
-
-**2. Redução de Erros**
-- Ícone: escudo/check
-- Copy: "Elimine falhas humanas em processos críticos"
-
-**3. Escalabilidade**
-- Ícone: gráfico crescente/foguete
-- Copy: "Cresça sem aumentar proporcionalmente sua equipe"
-
-#### CTA Primário
-
-"Ver Exemplos de Automações" (scroll suave para Seção 2)
+> **Status**: Atualizado em 15/02/2026
+> **Versão do Código**: Next.js 16.1.6 | Tailwind v4
 
 ---
 
-### SEÇÃO 2: Portfólio de Automações
+## 1. Identidade Visual
 
-#### Título da Seção
-"Automações que Já Desenvolvemos"
+### Paleta de Cores (Extraída do Código)
 
-#### Estrutura
+A paleta é baseada no tema "Dark Mode Tech" definido em `globals.css` e `tailwind.config.ts`.
 
-Grid responsivo (2x2 desktop, 1 coluna mobile) com cards de automações.
+#### Fundos (Backgrounds)
+- **Primary BG**: `#0A1628` (Pagina principal, Seções)
+- **Secondary BG**: `#0F1F3D` (Camadas internas, Inputs)
+- **Card BG**: `#1A2B4F` (Cards, Modais, Paineis)
 
-#### Cada Card Contém:
+#### Cores de Ação (Accents)
+- **Blue Primary**: `#2563EB` (Botões secundários, Links, Bordas de foco)
+- **Blue Light**: `#3B82F6` (Textos de destaque, Ícones)
+- **Orange Primary**: `#F97316` (Botões de CTA Principal, Gradientes)
+- **Orange Medium**: `#FB923C` (Hover states)
 
-- Título claro (ex: "Atendimento via WhatsApp")
-- Descrição curta (2-3 linhas, foco no resultado)
-- Badges de tecnologias (n8n + integrações)
-- Vídeo demonstrativo (placeholder `<video>` com controles)
-- Botão "Quero Esta Automação"
+#### Laranjas (Gradientes & Detalhes)
+- **Orange Light**: `#FDBA74`
+- **Gradient Orange**: `linear-gradient(135deg, #F97316 0%, #EA580C 100%)`
 
-#### Exemplos de Automações (conteúdo sugerido)
+#### Neutros e Texto
+- **White**: `#FFFFFF` (Títulos, Texto Principal)
+- **Gray Light**: `#E5E7EB` (Subtítulos, Texto Secundário)
+- **Gray Medium**: `#9CA3AF` (Textos de apoio, Placeholders)
 
-**1. Envio de Emails Automáticos**
-- Descrição: "Envie emails personalizados automaticamente quando um lead preenche formulário, faz uma compra ou atinge um marco no funil."
-- Tech: n8n, Gmail API, Sheets
-
-**2. Atendimento via WhatsApp/Telegram**
-- Descrição: "Chatbot inteligente que responde FAQs, qualifica leads e agenda reuniões 24/7, sem intervenção humana."
-- Tech: n8n, WhatsApp Business API, OpenAI
-
-**3. Assistente de Agendamento**
-- Descrição: "Cliente agenda horários disponíveis via chat, sistema sincroniza com seu Google Calendar e envia lembretes automáticos."
-- Tech: n8n, Google Calendar, Telegram/WhatsApp
-
-**4. Geração de Relatórios Automáticos**
-- Descrição: "Coleta dados de múltiplas fontes (CRM, planilhas, analytics), gera relatórios e envia por email toda semana/mês."
-- Tech: n8n, Google Sheets, Gmail, APIs diversas
+#### Efeitos e Bordas
+- **Border Blue**: `rgba(37, 99, 235, 0.15)` (Padrão para cards e seções)
+- **Glow Blue**: `0 0 20px rgba(37, 99, 235, 0.5)`
+- **Glow Orange**: `0 4px 24px rgba(249, 115, 22, 0.6)`
 
 ---
 
-### SEÇÃO 3: Formulários de Captura
+## 2. Tipografia
 
-#### Título da Seção
-"Comece Sua Automação Agora"
+**Font Family**:
+- **Sans**: `Geist Sans` (Var: `--font-geist-sans`)
+- **Mono**: `Geist Mono` (Var: `--font-geist-mono`)
 
-#### Divisão em 2 Colunas
-
-##### Coluna A: "Já Sei o Que Preciso"
-
-**Intro:** "Se você já tem claro qual automação deseja, preencha abaixo para agendar uma reunião de implementação."
-
-**Campos:**
-- Nome Completo (obrigatório)
-- Email (obrigatório)
-- Telefone (obrigatório, máscara brasileira)
-- Empresa
-- Descrição da Automação (obrigatório, textarea, placeholder: "Ex: Preciso enviar emails automáticos quando um cliente faz pedido no site")
-- Integrações Necessárias (obrigatório, multi-select: Gmail, Slack, Trello, Google Calendar, WhatsApp, Telegram, SAP, Salesforce, HubSpot, Outros - campo aberto)
-
-**CTA:** "Enviar e Agendar Reunião"
-
-##### Coluna B: "Preciso de Ajuda para Identificar Oportunidades"
-
-**Intro:** "Responda algumas perguntas para entendermos seus processos e sugerirmos automações personalizadas."
-
-**Campos:**
-- Nome Completo (obrigatório)
-- Email (obrigatório)
-- Telefone (obrigatório)
-- Empresa
-
-**Perguntas de Discovery:**
-
-1. "Quais as principais dores operacionais da sua empresa?" (obrigatório, textarea)
-2. "Que tarefas repetitivas sua equipe realiza diariamente?" (obrigatório, textarea, placeholder: "Ex: Atualizar planilhas manualmente, responder emails padrão, gerar relatórios...")
-3. "Quais sistemas/ferramentas você usa?" (obrigatório, multi-select)
-4. "Quantas horas por semana são gastas nessas tarefas manuais?" (obrigatório, select: 0-5h, 5-10h, 10-20h, 20+h)
-5. "Qual o tamanho da sua equipe?" (obrigatório, select: 1-5, 6-20, 21-50, 50+)
-
-**CTA:** "Enviar para Análise"
+**Pesos**:
+- Regular (400)
+- Medium (500)
+- Bold (700)
+- Extra Bold (800) - Usado em Títulos Herói
 
 ---
 
-### PÁGINA DE AGENDAMENTO
+## 3. Estrutura do Site (Sitemap Real)
 
-#### Título
-"Escolha Data e Horário para Sua Reunião"
+A estrutura reflete a ordem de importação em `src/app/page.tsx`.
 
-#### Componente
+1. **Header** (`Header.tsx`): Navegação fixa com blur.
+2. **Hero Section** (`Hero.tsx`):
+   - Título com gradiente.
+   - Badge "Vagas Abertas para Consultoria".
+   - Dois CTAs: Agendar (Laranja) e Catálogo (Outline Azul).
+3. **Sobre** (`SectionAbout.tsx`): Apresentação da empresa/especialista.
+4. **Calculadora ROI** (`SectionROI.tsx`):
+   - Sliders para Horas e Valor Hora.
+   - inputs para Taxa de Erro e Custo de Oportunidade.
+   - Card de resultado com destaque laranja.
+5. **Catálogo de Automações** (`SectionAutomation.tsx`):
+   - Grid de cards com exemplos (Onboarding, Financeiro, etc.).
+   - Badges de tecnologias e economia de tempo.
+6. **Formulários** (`SectionForms.tsx`):
+   - Abas alternáveis: "Já sei o que preciso" vs "Descobrir oportunidades".
+7. **FAQ** (`SectionFAQ.tsx`): Perguntas frequentes em Accordion.
+8. **Footer** (`Footer.tsx`): Links e copyright.
 
-- Calendário customizado (visual clean, destaque em dias disponíveis)
-- Ao clicar em data: aparecem slots de horário (cards clicáveis)
-- Modal de confirmação com resumo (nome, email, data, hora)
-
-#### Mensagem após seleção
-
-"Ótimo! Confirme os dados abaixo:"
-- Data: [DD/MM/YYYY]
-- Horário: [HH:MM]
-- Tipo: [Automação Pré-existente / Consultoria]
-
-**CTA:** "Confirmar Agendamento"
-
----
-
-### PÁGINA DE CONFIRMAÇÃO
-
-#### Se tipo = agendamento:
-
-- Ícone: checkmark
-- Título: "Reunião Agendada com Sucesso!"
-- Subtítulo: "Você receberá um email de confirmação em breve."
-- Box de destaque: Data e hora da reunião
-- Botão: "Adicionar ao Meu Calendário" (download .ics)
-- Link secundário: "Voltar ao Site"
-
-#### Se tipo = discovery:
-
-- Ícone: checkmark
-- Título: "Informações Recebidas!"
-- Subtítulo: "Analisaremos suas necessidades e entraremos em contato em até 24h para agendar uma reunião de consultoria."
-- CTA secundário: "Voltar ao Site"
+**Componentes Globais**:
+- **Exit Intent Popup** (`ExitIntentPopup.tsx`): Modal de captura de lead ao tentar sair da página.
+- **Toaster** (`sonner`): Notificações de sucesso/erro.
 
 ---
 
-## Elementos Visuais
+## 4. Componentes Visuais (UI Kit)
 
-### Ícones
+### Botões
+- **Primary (CTA)**: Gradiente Laranja (`from-[#F97316] to-[#EA580C]`), Sombra colorida (`shadow-[0_4px_24px_rgba(249,115,22,0.6)]`). Hover com scale e brilho.
+- **Secondary**: Borda Azul (`border-[#2563EB]`), Texto Azul. Hover preenche com azul sólido.
+- **Ghost/Link**: Texto cinza/branco com hover de cor.
 
-- Estilo: outline/stroke (não filled)
-- Biblioteca: Lucide React
-- Tamanho padrão: 24px (escalável)
+### Cards (Glassmorphism Tech)
+- **Base**: `bg-[#1A2B4F]` (Azul escuro sólido/translúcido)
+- **Borda**: `border-[rgba(37,99,235,0.15)]`
+- **Sombra**: `shadow-[0_8px_32px_rgba(0,0,0,0.5)]`
+- **Hover**: Levitação (`-translate-y-1`) e sombra intensificada.
 
-### Ilustrações/Imagens
+### Inputs
+- **Base**: `bg-[#0F1F3D]`
+- **Borda**: `border-[rgba(37,99,235,0.2)]`
+- **Foco**: Ring Laranja (`#F97316`)
 
-- Placeholder SVG abstrato para Hero (fluxos/conexões)
-- Vídeos de demonstração (você adiciona depois)
-- Evitar stock photos genéricas
+---
 
-### Animações
+## 5. Fluxos de Conversão
 
-- Scroll reveal: elementos aparecem ao entrar no viewport
-- Hover: scale + brightness
-- Loading states: spinners minimalistas
-- Transições: 200-300ms ease-in-out
+### Formulário: "Já Sei o que Preciso" (`FormDirect.tsx`)
+- **Objetivo**: Lead qualificado com demanda específica.
+- **Campos**: Nome, Email, WhatsApp, Empresa, Descrição, Checkbox de Integrações.
+- **Botão**: "Enviar e agendar reunião".
+- **Ação**: Envia webhook -> Redireciona para Google Calendar.
 
-## Mensagens e Microcopy
+### Formulário: "Diagnóstico" (`FormDiscovery.tsx`)
+- **Objetivo**: Lead em fase de descoberta/consciência.
+- **Campos**: Nome, Email, WhatsApp, Empresa, Mensagem (Dores).
+- **Botão**: "Receber diagnóstico e agendar".
+- **Ação**: Envia webhook -> Redireciona para Google Calendar.
 
-### Estados de Formulário
+### Exit Intent Popup
+- **Gatilho**: Mouse sai da janela (desktop) ou timer.
+- **Oferta**: "Guia: 5 Processos para Automatizar".
+- **Campos**: Apenas Email.
+- **Persistência**: Salva `exitIntentShown=true` no localStorage para não repetir.
 
-- **Loading:** "Enviando..."
-- **Sucesso:** "Enviado com sucesso!"
-- **Erro Genérico:** "Algo deu errado. Tente novamente."
-- **Erro de Validação:** Mensagens específicas (ex: "Email inválido", "Campo obrigatório")
+---
 
-### Call-to-Actions
+## 6. Tom de Voz
 
-**Primários:**
-- "Ver Exemplos de Automações"
-- "Quero Esta Automação"
-- "Enviar e Agendar Reunião"
-- "Confirmar Agendamento"
-
-**Secundários:**
-- "Voltar ao Site"
-- "Adicionar ao Calendário"
-- "Enviar para Análise"
-
-## Acessibilidade
-
-- Alto contraste em ambos os temas (WCAG AA mínimo)
-- Alt text descritivo em imagens
-- Labels visíveis em formulários
-- Navegação por teclado (focus states visíveis)
-- Aria-labels em ícones interativos
+- **Profissional & Técnico**: "Automação Inteligente", "ROI", "Integrações".
+- **Direto**: "Reduza 15 horas semanais", "Pare de perder tempo".
+- **Focado em Resultados**: Ênfase em economia financeira e de tempo.

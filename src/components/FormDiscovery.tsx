@@ -129,14 +129,20 @@ export function FormDiscovery() {
                     name="mensagem"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Mensagem</FormLabel>
+                            <FormLabel className="text-base text-white font-medium">
+                                Qual tarefa você repete TODOS os dias que poderia ser automática?
+                            </FormLabel>
                             <FormControl>
                                 <Textarea
-                                    placeholder="Descreva suas principais tarefas repetitivas ou dores do dia a dia..."
-                                    className="min-h-[120px] bg-[#0F1F3D] border-[rgba(37,99,235,0.2)] text-white focus:border-[#F97316] focus:ring-[#F97316]"
+                                    rows={6}
+                                    placeholder={`Ex: "Envio 30 propostas por email todo dia copiando dados de uma planilha"\n\nOu: "Recebo pedidos no WhatsApp e preciso cadastrar manualmente no sistema"\n\nOu: "Faço follow-up de clientes por email toda segunda-feira"\n\nOu: "Exporto relatórios do sistema e monto apresentações toda semana"`}
+                                    className="min-h-[120px] bg-[#0F1F3D] border-[rgba(37,99,235,0.2)] text-white placeholder:text-[#9CA3AF] focus:border-[#F97316] focus:ring-[#F97316] leading-relaxed"
                                     {...field}
                                 />
                             </FormControl>
+                            <p className="text-sm text-[#9CA3AF]">
+                                💡 Quanto mais específico, melhor o diagnóstico. Inclua: ferramenta que usa + tarefa + frequência.
+                            </p>
                             <FormMessage />
                         </FormItem>
                     )}

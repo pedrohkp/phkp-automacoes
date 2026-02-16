@@ -16,6 +16,9 @@ export const translations = {
             subtitle: "Economize 20h/semana automatizando tarefas repetitivas. Integração completa entre seus sistemas favoritos, sem que você precise mover um dedo.",
             cta_primary: "Começar Agora",
             cta_secondary: "Ver Exemplos",
+            cta_schedule: "Agendar Reunião Gratuita de 30min",
+            cta_catalog: "Ver Automações Prontas",
+            disclaimer: "Sem compromisso. Diagnóstico gratuito. Só uma conversa sobre como economizar tempo.",
             features: {
                 fast_impl: "Implementação Rápida",
                 support: "Suporte Contínuo",
@@ -25,20 +28,24 @@ export const translations = {
         about: {
             title: "Quem está por trás das automações",
             role: "Especialista em automação de processos",
-            p1: "Diferente de desenvolvedores que aprenderam automação na teoria, eu aprendi na prática — gerenciando equipes comerciais, coordenando licitações e integrando setores que não conversavam entre si.",
-            p2: "Durante 7 anos como gerente comercial no setor hospitalar, vi empresas perderem contratos por falhas operacionais que uma automação simples resolveria. Vi vendedores anotando pedidos no papel. Vi planilhas desatualizadas travando decisões de diretoria.",
-            p3: "Quando descobri o n8n, percebi: não é sobre código. É sobre entender o fluxo real do negócio e conectar os pontos certos.",
-            p4_1: "Hoje, uno visão estratégica de quem geriu processos complexos com execução técnica de automação. Resultado: soluções que funcionam no mundo real, não só no Notion do founder.",
-            p4_2: "",
-            p4_3: "",
+            p1: "Construí minha base ao longo de 7 anos como <strong class=\"text-white\">Gerente Comercial</strong> e <strong class=\"text-white\">Coordenador de Licitações</strong> no setor hospitalar, onde a precisão não é opcional. Vivi na prática o desafio de integrar departamentos que não se comunicavam e o custo real de decisões travadas por processos manuais e planilhas desatualizadas.",
+            p2: "Automação resolve o que mata a produtividade: tarefas manuais repetitivas. Transformar formulário em planilha, planilha em notificação, e notificação em ação. É a infraestrutura invisível que elimina o \"esqueci de fazer\" ou o \"copiei errado\", permitindo que as equipes foquem no que o humano faz melhor: decidir e criar.",
+            p3: "Hoje, uno visão de gestão com execução técnica. Automação que funciona no mundo real, não só no papel.",
         },
         roi: {
             title: "Quanto tempo e dinheiro você pode economizar?",
             subtitle: "Simule o impacto da automação no seu negócio.",
             label_hours: "Quantas horas/semana gastas em tarefas repetitivas?",
             label_rate: "Qual o custo/hora da sua operação?",
+            label_error_rate: "Taxa de erro em processos manuais (%)",
+            desc_error_rate: "Retrabalho por erros de digitação, esquecimentos, etc.",
+            label_opportunity: "Quanto você deixa de ganhar por não ter tempo? (R$/mês)",
+            desc_opportunity: "Ex: vendas perdidas, projetos atrasados",
             result_title: "Economia estimada mensal",
+            result_savings_label: "💰 Economia Estimada:",
+            result_month_suffix: "por mês",
             result_note: "Considerando 70% de eficiência em automação",
+            disclaimer: "* Cálculo baseado em 70% de eficiência da automação (padrão do mercado) + custo real de retrabalho por erro humano. Valores reais variam por processo.",
             cta: "Quero economizar isso",
         },
         lead: {
@@ -129,6 +136,11 @@ export const translations = {
                     a: "Pré-definidas: soluções prontas do nosso catálogo (implementação rápida, teste gratuito de 1 semana, mensalidade fixa). Customizadas: desenvolvidas do zero para seu caso específico (mais flexibilidade, orçamento personalizado)."
                 }
             ]
+        },
+        footer: {
+            rights: "© 2024 PHKP Soluções. Todos os direitos reservados.",
+            terms: "Termos",
+            privacy: "Privacidade"
         }
     },
     en: {
@@ -148,6 +160,9 @@ export const translations = {
             subtitle: "Save 20h/week by automating repetitive tasks. Seamless integration between your favorite systems, without lifting a finger.",
             cta_primary: "Start Now",
             cta_secondary: "See Examples",
+            cta_schedule: "Schedule Free 30min Meeting",
+            cta_catalog: "View Ready Automations",
+            disclaimer: "No commitment. Free diagnosis. Just a chat about saving time.",
             features: {
                 fast_impl: "Fast Implementation",
                 support: "Continuous Support",
@@ -157,20 +172,24 @@ export const translations = {
         about: {
             title: "Who is behind the automations",
             role: "Process Automation Specialist",
-            p1: "For 7 years I worked as a commercial manager and bid coordinator at a large hospital products distributor, leading a team of 14 sales representatives and operating critical sales processes in a highly regulated market.",
-            p2: "My work has always been organizing complex operations: analyzing scenarios, structuring proposals, eliminating failures, and transforming confusing routines into predictable processes.",
-            p3: "Today I apply this same logic using automation and AI. I create systems that run operational tasks automatically — service, shipping, tracking, and data organization — allowing companies to gain time without increasing staff.",
-            p4_1: "I don't come from the programming world.",
-            p4_2: "I come from the real business world.",
-            p4_3: "Technology is just the tool to make the operation run better.",
+            p1: "I built my foundation over 7 years as a <strong class=\"text-white\">Commercial Manager</strong> and <strong class=\"text-white\">Bid Coordinator</strong> in the hospital sector, where precision is not optional. I lived through the challenge of integrating departments that didn't communicate and the real cost of decisions stalled by manual processes and outdated spreadsheets.",
+            p2: "Automation solves what kills productivity: repetitive manual tasks. Transforming forms into spreadsheets, spreadsheets into notifications, and notifications into action. It is the invisible infrastructure that eliminates 'I forgot to do it' or 'I copied it wrong', allowing teams to focus on what humans do best: deciding and creating.",
+            p3: "Today, I combine management vision with technical execution. Automation that works in the real world, not just on paper.",
         },
         roi: {
             title: "How much time and money can you save?",
             subtitle: "Simulate the impact of automation on your business.",
             label_hours: "Hours/week spent on repetitive tasks?",
             label_rate: "What is your operation's hourly cost?",
+            label_error_rate: "Error rate in manual processes (%)",
+            desc_error_rate: "Rework due to typing errors, forgetfulness, etc.",
+            label_opportunity: "How much do you lose by not having time? (R$/month)",
+            desc_opportunity: "Ex: lost sales, delayed projects",
             result_title: "Estimated Monthly Savings",
+            result_savings_label: "💰 Estimated Savings:",
+            result_month_suffix: "per month",
             result_note: "Considering 70% automation efficiency",
+            disclaimer: "* Calculation based on 70% automation efficiency (market standard) + real cost of rework due to human error. Real values vary by process.",
             cta: "I want to save this",
         },
         lead: {
@@ -261,6 +280,11 @@ export const translations = {
                     a: "Pre-defined: ready solutions from our catalog (fast implementation, 1-week free trial, fixed monthly fee). Custom: developed from scratch for your specific case (more flexibility, custom quote)."
                 }
             ]
+        },
+        footer: {
+            rights: "© 2024 PHKP Solutions. All rights reserved.",
+            terms: "Terms",
+            privacy: "Privacy"
         }
     }
 }

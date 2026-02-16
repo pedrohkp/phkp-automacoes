@@ -1,139 +1,150 @@
-# System Prompt - Landing Page Automações n8n
+# Documentação Técnica do Projeto (gemini.md)
 
-## Stack Técnica
+> **Status**: Atualizado em 15/02/2026
+> **Versão**: 2.0.0
 
-- **Framework:** Next.js 14 (App Router)
-- **Linguagem:** TypeScript (strict mode)
-- **Estilização:** Tailwind CSS
-- **Componentes:** Shadcn/ui
-- **Ícones:** Lucide React
-- **Formulários:** React Hook Form + Zod
-- **Dark Mode:** next-themes
-- **Calendário:** Google Calendar API via @googleapis/calendar
+---
 
-## Estrutura de Arquivos
+## 1. Contexto do Projeto
 
+### Objetivo
+Landing page de alta conversão para serviços de automação com n8n (PHKP Soluções), focada em agendamento de reuniões e captura de leads.
+
+### Stack Técnica
+- **Framework**: Next.js 16.1.6 (App Router)
+- **Linguagem**: TypeScript 5
+- **Estilização**: Tailwind CSS v4 + Tailwind Animate
+- **UI Components**: Shadcn UI (Radix Primitives)
+- **Forms**: React Hook Form + Zod
+- **Ícones**: Lucide React
+
+---
+
+## 2. Arquitetura Técnica
+
+### Estrutura de Pastas (`src/`)
 ```
-/app
-  /page.tsx
-  /agendamento/page.tsx
-  /confirmacao/page.tsx
-  /layout.tsx
-/components
-  /ui (shadcn)
-  /Hero.tsx
-  /SectionAutomation.tsx
-  /SectionExamples.tsx
-  /SectionCTA.tsx
-  /FormDirect.tsx
-  /FormDiscovery.tsx
-  /CalendarCustom.tsx
-  /ThemeToggle.tsx
-/lib
-  /google-calendar.ts
-  /utils.ts
-  /schemas.ts
+src/
+├── app/
+│   ├── globals.css      # Variáveis de tema e Tailwind v4 config
+│   ├── layout.tsx       # Root layout com Providers (Theme, Language, Toast)
+│   └── page.tsx         # Composição das seções da Landing Page
+├── components/
+│   ├── ui/              # Componentes Shadcn (Button, Input, Card, etc.)
+│   ├── FormDirect.tsx   # Formulário principal
+│   ├── FormDiscovery.tsx # Formulário de diagnóstico
+│   ├── SectionROI.tsx   # Calculadora de ROI
+│   └── ...              # Outras seções (Hero, About, FAQ)
+└── lib/
+    ├── schemas.ts       # Schemas de validação Zod
+    └── utils.ts         # Utilitários (cn)
 ```
 
-## Integrações
+---
 
-### Webhooks n8n
+## 3. Configurações de Integração (n8n)
 
-Três endpoints (variáveis de ambiente):
-- `NEXT_PUBLIC_N8N_WEBHOOK_DIRECT` - cliente sabe o que quer
-- `NEXT_PUBLIC_N8N_WEBHOOK_DISCOVERY` - cliente precisa consultoria
-- `NEXT_PUBLIC_N8N_WEBHOOK_BOOKING` - agendamento confirmado
+**Webhook URL Central**:
+`https://formacao-n8n.euualf.easypanel.host/webhook/phkp-formulario`
 
-### Payloads Esperados
+Todas as requisições são `POST` com `Content-Type: application/json`.
 
-**FormDirect:**
+### Payloads por Tipo de Formulário
+
+#### A) Formulário Direto (`FormDirect.tsx`)
+- **Tipo**: `ja_sei_o_que_preciso`
+- **Gatilho**: Aba "Já sei o que preciso" na seção de Contato.
 ```json
 {
-  "tipo": "direto",
+  "tipo": "ja_sei_o_que_preciso",
   "nome": "string",
-  "email": "string",
-  "telefone": "string",
+  "email": "email",
   "empresa": "string",
-  "descricao_automacao": "string",
-  "integracoes": ["array"],
-  "timestamp": "ISO8601"
+  "mensagem": "string", // Campo 'descricao_automacao'
+  "integracoes": ["Gmail", "Slack"], // Array de strings
+  "timestamp": "ISO Date"
 }
 ```
 
-**FormDiscovery:**
+#### B) Formulário Descoberta (`FormDiscovery.tsx`)
+- **Tipo**: `diagnostico_descoberta`
+- **Gatilho**: Aba "Quero descobrir oportunidades".
 ```json
 {
-  "tipo": "discovery",
+  "tipo": "diagnostico_descoberta",
   "nome": "string",
-  "email": "string",
-  "telefone": "string",
+  "email": "email",
+  "whatsapp": "string",
   "empresa": "string",
-  "dores_operacionais": "string",
-  "tarefas_repetitivas": "string",
-  "sistemas": ["array"],
-  "horas_semanais": "string",
-  "tamanho_equipe": "string",
-  "timestamp": "ISO8601"
+  "mensagem": "string",
+  "timestamp": "ISO Date"
 }
 ```
 
-**Booking:**
+#### C) Exit Intent Popup (`ExitIntentPopup.tsx`)
+- **Tipo**: `lead_frio_guia`
+- **Gatilho**: Intenção de saída (mouse leave).
 ```json
 {
-  "tipo": "agendamento",
-  "nome": "string",
-  "email": "string",
-  "data": "YYYY-MM-DD",
-  "horario": "HH:MM",
-  "automacao_id": "string | null",
-  "google_event_id": "string"
+  "tipo": "lead_frio_guia",
+  "email": "email",
+  "origem": "exit_intent_popup",
+  "timestamp": "ISO Date"
 }
 ```
+
+---
+
+## 4. Validação de Dados (Zod Schemas)
+
+Arquivo: `src/lib/schemas.ts`
+
+### `formDirectSchema`
+- **nome**: min(2)
+- **email**: email válido
+- **whatsapp**: min(10)
+- **empresa**: opcional
+- **descricao_automacao**: min(10)
+- **integracoes**: min(1) (Obrigatório selecionar ao menos uma)
+
+### `formDiscoverySchema`
+- **nome**: min(2)
+- **email**: email válido
+- **whatsapp**: min(10)
+- **empresa**: opcional
+- **mensagem**: min(10)
+
+### `exitIntentSchema`
+- **email**: email válido
+
+---
+
+## 5. Integrações Externas
 
 ### Google Calendar
+- **Link**: `https://calendar.app.google/HMcfcEcCeci7Zu4k6`
+- **Ação**: Redirecionamento automático após sucesso no envio dos formulários (`window.location.href`).
+- **Parâmetros**:
+  - No catálogo (`SectionAutomation.tsx`), o link recebe `?automacao=nome-da-automacao` para contexto.
 
-- **API Routes:** `/api/calendar/slots` (GET) e `/api/calendar/book` (POST)
-- **Autenticação:** OAuth 2.0 server-side (não expor credenciais no frontend)
-- **Horários comerciais:** 9h-18h, seg-sex
+### LocalStorage
+- **Chave**: `exitIntentShown`
+- **Valor**: `"true"`
+- **Uso**: Impede que o popup de saída apareça mais de uma vez para o usuário.
 
-## Regras de Implementação
+---
 
-### ✅ FAZER:
+## 6. Funcionalidades Específicas
 
-- TypeScript strict mode (sem `any`)
-- Componentes funcionais com hooks
-- Validação com Zod em todos os formulários
-- Loading states e error handling
-- Toast notifications (shadcn toast ou sonner)
-- Validação em tempo real (onChange)
-- Acessibilidade (aria-labels, navegação por teclado)
-- SEO metadata (title, description, og:tags)
-- Responsive design (mobile-first)
+### Calculadora ROI (`SectionROI.tsx`)
+**Fórmula de Economia**:
+```javascript
+EconomyTime = (Horas * 4semanas * ValorHora * 0.7)
+ReworkCost = (Horas * 4semanas * ValorHora * (TaxaErro / 100))
+Savings = EconomyTime + ReworkCost + CustoOportunidade
+```
+*Nota: O fator `0.7` representa uma estimativa conservadora de 70% de tempo economizado.*
 
-### ❌ NÃO FAZER:
-
-- Bibliotecas pesadas de calendário (criar customizado)
-- Expor credenciais do Google no frontend
-- Enviar dados sem validação
-- Webhooks hardcoded
-- Class components
-- Inline styles (só Tailwind)
-
-## Ordem de Implementação
-
-1. Setup (shadcn, theme provider, layout)
-2. Página principal com 3 seções
-3. Formulários (Direct + Discovery)
-4. Integração webhooks
-5. Página agendamento + Google Calendar
-6. Página confirmação
-7. Responsividade e a11y
-8. Dark mode
-
-## Formato de Saída
-
-- Caminho completo do arquivo
-- Código com comentários em pontos críticos
-- Imports organizados (externos → internos → relativos)
-- Interfaces TypeScript bem definidas
-
+### Tema & Estilização
+- **Tailwind v4**: Configuração via CSS variables em `globals.css` (ex: `--color-primary: var(--primary)`).
+- **Dark Mode**: Forçado como padrão (`defaultTheme="dark"` em `layout.tsx`).

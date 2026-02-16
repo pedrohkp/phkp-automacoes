@@ -99,7 +99,7 @@ export default function PrivacidadePage() {
                         <h2 className="text-2xl font-semibold text-white mb-3">7. Contato do Responsável</h2>
                         <p className="text-[#E5E7EB] leading-relaxed">
                             <strong>Responsável pelo Tratamento de Dados:</strong><br />
-                            Pedro Pavão - PHKP Automações<br />
+                            Pedro Pavão - PHKP Soluções<br />
                             E-mail: <a href="mailto:contato@phkp.com" className="text-[#F97316] hover:underline">contato@phkp.com</a>
                         </p>
                     </section>

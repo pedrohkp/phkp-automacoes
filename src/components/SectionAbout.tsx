@@ -34,17 +34,11 @@ export function SectionAbout() {
                                 </h3>
                             </div>
 
-                            <p>
-                                Construí minha base ao longo de 7 anos como <strong className="text-white">Gerente Comercial</strong> e <strong className="text-white">Coordenador de Licitações</strong> no setor hospitalar, onde a precisão não é opcional. Vivi na prática o desafio de integrar departamentos que não se comunicavam e o custo real de decisões travadas por processos manuais e planilhas desatualizadas.
-                            </p>
+                            <p dangerouslySetInnerHTML={{ __html: t.about.p1 }} />
 
-                            <p>
-                                Automação resolve o que mata a produtividade: tarefas manuais repetitivas. Transformar formulário em planilha, planilha em notificação, e notificação em ação. É a infraestrutura invisível que elimina o "esqueci de fazer" ou o "copiei errado", permitindo que as equipes foquem no que o humano faz melhor: decidir e criar.
-                            </p>
+                            <p dangerouslySetInnerHTML={{ __html: t.about.p2 }} />
 
-                            <p className="font-medium text-[#E5E7EB]">
-                                Hoje, uno visão de gestão com execução técnica. Automação que funciona no mundo real, não só no papel.
-                            </p>
+                            <p className="font-medium text-[#E5E7EB]" dangerouslySetInnerHTML={{ __html: t.about.p3 }} />
                         </div>
                     </div>
                 </div>

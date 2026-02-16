@@ -21,21 +21,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PHKP Automações | Automação Inteligente com n8n",
+  title: "PHKP Soluções | Automação Inteligente com n8n",
   description: "Reduza até 15 horas semanais automatizando processos repetitivos. Especialistas em n8n para empresas que querem escalar sem contratar.",
   keywords: ["automação", "n8n", "processos", "produtividade", "no-code", "workflow automation"],
-  authors: [{ name: "Pedro Pavão - PHKP Automações" }],
+  authors: [{ name: "Pedro Pavão - PHKP Soluções" }],
   openGraph: {
-    title: "PHKP Automações | Automação Inteligente com n8n",
+    title: "PHKP Soluções | Automação Inteligente com n8n",
     description: "Reduza até 15 horas semanais automatizando processos repetitivos",
     url: "https://phkp-automacoes.vercel.app",
-    siteName: "PHKP Automações",
+    siteName: "PHKP Soluções",
     locale: "pt_BR",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "PHKP Automações | Automação Inteligente com n8n",
+    title: "PHKP Soluções | Automação Inteligente com n8n",
     description: "Reduza até 15 horas semanais automatizando processos repetitivos",
   },
 };

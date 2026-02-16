@@ -65,7 +65,7 @@ export function Header() {
                     className="flex items-center space-x-2 font-bold text-2xl tracking-tight text-white transition-all hover:text-[#3B82F6]"
                     style={{ textShadow: "0 0 10px rgba(37, 99, 235, 0.5)" }}
                 >
-                    <span>PHKP Automações</span>
+                    <span>PHKP Soluções</span>
                 </Link>
 
                 {/* Desktop Navigation */}

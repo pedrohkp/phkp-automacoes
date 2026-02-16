@@ -19,7 +19,7 @@ export default function TermosPage() {
                     <section>
                         <h2 className="text-2xl font-semibold text-white mb-3">1. Aceitação dos Termos</h2>
                         <p className="text-[#E5E7EB] leading-relaxed">
-                            Ao acessar e utilizar os serviços da PHKP Automações, você concorda com estes Termos de Uso.
+                            Ao acessar e utilizar os serviços da PHKP Soluções, você concorda com estes Termos de Uso.
                             Se não concordar com algum termo, recomendamos que não utilize nossos serviços.
                         </p>
                     </section>
@@ -27,7 +27,7 @@ export default function TermosPage() {
                     <section>
                         <h2 className="text-2xl font-semibold text-white mb-3">2. Descrição dos Serviços</h2>
                         <p className="text-[#E5E7EB] leading-relaxed mb-3">
-                            A PHKP Automações oferece serviços de implementação de automações de processos utilizando a plataforma n8n, incluindo:
+                            A PHKP Soluções oferece serviços de implementação de automações de processos utilizando a plataforma n8n, incluindo:
                         </p>
                         <ul className="list-disc list-inside space-y-2 text-[#E5E7EB] ml-4">
                             <li>Análise e mapeamento de processos</li>

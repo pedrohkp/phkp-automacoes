@@ -40,7 +40,7 @@ export function Hero() {
                         rel="noopener noreferrer"
                         className="px-8 py-4 bg-gradient-to-br from-[#F97316] to-[#EA580C] text-white font-semibold rounded-lg shadow-[0_4px_24px_rgba(249,115,22,0.6)] hover:shadow-[0_6px_32px_rgba(249,115,22,0.8)] hover:scale-105 transition-all text-lg flex items-center gap-2"
                     >
-                        <span>📅</span> Agendar Reunião Gratuita de 30min
+                        <span>📅</span> {t.hero.cta_schedule}
                     </a>
 
                     {/* Botão Secundário */}
@@ -48,13 +48,13 @@ export function Hero() {
                         onClick={() => document.getElementById('catalogo')?.scrollIntoView({ behavior: 'smooth' })}
                         className="px-8 py-4 border-2 border-[#2563EB] text-[#2563EB] font-semibold rounded-lg hover:bg-[#2563EB] hover:text-white transition-all text-lg"
                     >
-                        Ver Automações Prontas
+                        {t.hero.cta_catalog}
                     </button>
                 </div>
 
                 {/* Texto abaixo dos botões */}
                 <p className="mt-6 text-[#9CA3AF] text-sm text-center max-w-md mx-auto">
-                    Sem compromisso. Diagnóstico gratuito. Só uma conversa sobre como economizar tempo.
+                    {t.hero.disclaimer}
                 </p>
 
                 {/* Social Proof / Benefit Pills */}
